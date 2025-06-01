@@ -1,0 +1,50 @@
+﻿<Page x:Class="HangedMan_Client.Views.WaitingRoomView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HangedMan_Client.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="WaitingRoomView">
+
+    <Page.Resources>
+        <Style x:Key="AccionButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Border Background="White" CornerRadius="20"/>
+        <Border CornerRadius="20" Width="1200" Height="800">
+            <Border.Background>
+                <SolidColorBrush Color="#FF4C4C4C" Opacity="0.3"/>
+            </Border.Background>
+            <Border CornerRadius="10" Background="White" Padding="20" Width="448" Height="556"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <Label Content="Esperando jugador" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30" Foreground="Black" Margin="20"/>
+                    <Image Source="/Resources/titleHangedMan.png" Width="404" Height="50" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    <Image Source="/Resources/waitinRoomHangedMan.png" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <Ellipse Width="12" Height="12" Fill="#10B981"/>
+                        <Label x:Name="lblWaitingPlayer" Content="Esperando otro jugador..." HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="16" Foreground="#4B5563" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <Label Content="El juego comenzara automáticamente" HorizontalAlignment="Center" Margin="0,0,0,20" FontWeight="SemiBold" FontSize="16" Foreground="#6B7280"/>
+                    <Button x:Name="btnLeaveMatch" Content="Cancelar" Height="48" Background="#DDDDDD" Foreground="Black" BorderBrush="{x:Null}"  Style="{StaticResource AccionButtonStyle}" FontWeight="Bold" FontSize="18" Click="BtnLeaveMatch_Click"/>
+                </StackPanel>
+            </Border>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Logic.POCO" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Logic.POCO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.69:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Player">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NickName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlayerID" type="xs:int" />
+      <xs:element minOccurs="0" name="PointsEarned" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Player" nillable="true" type="tns:Player" />
+  <xs:complexType name="Match">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChallengerID" type="xs:int" />
+      <xs:element minOccurs="0" name="DateMatch" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailChallenger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GuestID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MatchID" type="xs:int" />
+      <xs:element minOccurs="0" name="MatchLanguage" type="xs:int" />
+      <xs:element minOccurs="0" name="NickNameChallenger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RemainingAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="SelectedLetter" nillable="true" type="ser:char" />
+      <xs:element minOccurs="0" name="StatusMatchID" type="xs:int" />
+      <xs:element minOccurs="0" name="WinnerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WordID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Match" nillable="true" type="tns:Match" />
+  <xs:complexType name="ArrayOfMatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Match" nillable="true" type="tns:Match" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatch" nillable="true" type="tns:ArrayOfMatch" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpanishCategory" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfWord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Word" nillable="true" type="tns:Word" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWord" nillable="true" type="tns:ArrayOfWord" />
+  <xs:complexType name="Word">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="EnglishClue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnglishWord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpanishClue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpanishWord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WordID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Word" nillable="true" type="tns:Word" />
+</xs:schema>

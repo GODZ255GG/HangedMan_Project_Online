@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="HangedManService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IPlayerServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IWordServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.69:8082/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.69:8082/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.69:8082/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Logic.POCO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlayerServices_RegisterPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_RegisterPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_EmailAlreadyRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailAlreadyRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_EmailAlreadyRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailAlreadyRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_NicknameAlreadyRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:NicknameAlreadyRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_NicknameAlreadyRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NicknameAlreadyRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_TelephoneAlreadyExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:TelephoneAlreadyExist" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_TelephoneAlreadyExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TelephoneAlreadyExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_LogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_LogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_UpdatePlayerProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlayerProfile" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_UpdatePlayerProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlayerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_GetPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPoints" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_GetPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_CreateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_CreateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchList" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchesPlayed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchesPlayed" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchesPlayed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchesPlayedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_InitMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_InitMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetGuestNickName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestNickName" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetGuestNickName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestNickNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_IsThereGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsThereGuest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_IsThereGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsThereGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_LeaveMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_LeaveMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetGuestLetter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestLetter" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetGuestLetter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestLetterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetRemainingAttempts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemainingAttempts" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetRemainingAttempts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemainingAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdatePointsEarned_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePointsEarned" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdatePointsEarned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePointsEarnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_PenalizeAbandon_InputMessage">
+    <wsdl:part name="parameters" element="tns:PenalizeAbandon" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_PenalizeAbandon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PenalizeAbandonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_FinishMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinishMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_FinishMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateCharBD_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCharBD" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateCharBD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCharBDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchStatus" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetMatchStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateRemainingAttempts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemainingAttempts" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateRemainingAttempts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemainingAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateWinner_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWinner" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_UpdateWinner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWinnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetWinnerID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinnerID" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_GetWinnerID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWinnerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordsPerCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordsPerCategory" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordsPerCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordsPerCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordSpanish_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordSpanish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordSpanish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordSpanishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordEnglish_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordEnglish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordEnglish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordEnglishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetClueSpanish_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClueSpanish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetClueSpanish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClueSpanishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetClueEnglish_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClueEnglish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetClueEnglish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClueEnglishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetCategoryByWordID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByWordID" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetCategoryByWordID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByWordIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlayerServices">
+    <wsdl:operation name="RegisterPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/RegisterPlayer" message="tns:IPlayerServices_RegisterPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/RegisterPlayerResponse" message="tns:IPlayerServices_RegisterPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailAlreadyRegistered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/EmailAlreadyRegistered" message="tns:IPlayerServices_EmailAlreadyRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/EmailAlreadyRegisteredResponse" message="tns:IPlayerServices_EmailAlreadyRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NicknameAlreadyRegistered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/NicknameAlreadyRegistered" message="tns:IPlayerServices_NicknameAlreadyRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/NicknameAlreadyRegisteredResponse" message="tns:IPlayerServices_NicknameAlreadyRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TelephoneAlreadyExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/TelephoneAlreadyExist" message="tns:IPlayerServices_TelephoneAlreadyExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/TelephoneAlreadyExistResponse" message="tns:IPlayerServices_TelephoneAlreadyExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/LogIn" message="tns:IPlayerServices_LogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/LogInResponse" message="tns:IPlayerServices_LogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayerProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/UpdatePlayerProfile" message="tns:IPlayerServices_UpdatePlayerProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/UpdatePlayerProfileResponse" message="tns:IPlayerServices_UpdatePlayerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/GetPoints" message="tns:IPlayerServices_GetPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/GetPointsResponse" message="tns:IPlayerServices_GetPoints_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGameServices">
+    <wsdl:operation name="CreateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/CreateMatch" message="tns:IGameServices_CreateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/CreateMatchResponse" message="tns:IGameServices_CreateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetMatchList" message="tns:IGameServices_GetMatchList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetMatchListResponse" message="tns:IGameServices_GetMatchList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchesPlayed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetMatchesPlayed" message="tns:IGameServices_GetMatchesPlayed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetMatchesPlayedResponse" message="tns:IGameServices_GetMatchesPlayed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/InitMatch" message="tns:IGameServices_InitMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/InitMatchResponse" message="tns:IGameServices_InitMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestNickName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetGuestNickName" message="tns:IGameServices_GetGuestNickName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetGuestNickNameResponse" message="tns:IGameServices_GetGuestNickName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsThereGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/IsThereGuest" message="tns:IGameServices_IsThereGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/IsThereGuestResponse" message="tns:IGameServices_IsThereGuest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/LeaveMatch" message="tns:IGameServices_LeaveMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/LeaveMatchResponse" message="tns:IGameServices_LeaveMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestLetter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetGuestLetter" message="tns:IGameServices_GetGuestLetter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetGuestLetterResponse" message="tns:IGameServices_GetGuestLetter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemainingAttempts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetRemainingAttempts" message="tns:IGameServices_GetRemainingAttempts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetRemainingAttemptsResponse" message="tns:IGameServices_GetRemainingAttempts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePointsEarned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/UpdatePointsEarned" message="tns:IGameServices_UpdatePointsEarned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/UpdatePointsEarnedResponse" message="tns:IGameServices_UpdatePointsEarned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PenalizeAbandon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/PenalizeAbandon" message="tns:IGameServices_PenalizeAbandon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/PenalizeAbandonResponse" message="tns:IGameServices_PenalizeAbandon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/FinishMatch" message="tns:IGameServices_FinishMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/FinishMatchResponse" message="tns:IGameServices_FinishMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCharBD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/UpdateCharBD" message="tns:IGameServices_UpdateCharBD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/UpdateCharBDResponse" message="tns:IGameServices_UpdateCharBD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetMatchStatus" message="tns:IGameServices_GetMatchStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetMatchStatusResponse" message="tns:IGameServices_GetMatchStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemainingAttempts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/UpdateRemainingAttempts" message="tns:IGameServices_UpdateRemainingAttempts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/UpdateRemainingAttemptsResponse" message="tns:IGameServices_UpdateRemainingAttempts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWinner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/UpdateWinner" message="tns:IGameServices_UpdateWinner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/UpdateWinnerResponse" message="tns:IGameServices_UpdateWinner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWinnerID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/GetWinnerID" message="tns:IGameServices_GetWinnerID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/GetWinnerIDResponse" message="tns:IGameServices_GetWinnerID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IWordServices">
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetCategories" message="tns:IWordServices_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetCategoriesResponse" message="tns:IWordServices_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWordsPerCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetWordsPerCategory" message="tns:IWordServices_GetWordsPerCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetWordsPerCategoryResponse" message="tns:IWordServices_GetWordsPerCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWordSpanish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetWordSpanish" message="tns:IWordServices_GetWordSpanish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetWordSpanishResponse" message="tns:IWordServices_GetWordSpanish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWordEnglish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetWordEnglish" message="tns:IWordServices_GetWordEnglish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetWordEnglishResponse" message="tns:IWordServices_GetWordEnglish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClueSpanish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetClueSpanish" message="tns:IWordServices_GetClueSpanish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetClueSpanishResponse" message="tns:IWordServices_GetClueSpanish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClueEnglish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetClueEnglish" message="tns:IWordServices_GetClueEnglish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetClueEnglishResponse" message="tns:IWordServices_GetClueEnglish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByWordID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetCategoryByWordID" message="tns:IWordServices_GetCategoryByWordID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetCategoryByWordIDResponse" message="tns:IWordServices_GetCategoryByWordID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IPlayerServices" type="tns:IPlayerServices">
+    <wsp:PolicyReference URI="#NetTcpBinding_IPlayerServices_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="RegisterPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/RegisterPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailAlreadyRegistered">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/EmailAlreadyRegistered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NicknameAlreadyRegistered">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/NicknameAlreadyRegistered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TelephoneAlreadyExist">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/TelephoneAlreadyExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/LogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayerProfile">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/UpdatePlayerProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoints">
+      <soap12:operation soapAction="http://tempuri.org/IPlayerServices/GetPoints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameServices" type="tns:IGameServices">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameServices_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/CreateMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchList">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetMatchList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchesPlayed">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetMatchesPlayed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/InitMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestNickName">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetGuestNickName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsThereGuest">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/IsThereGuest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/LeaveMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestLetter">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetGuestLetter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemainingAttempts">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetRemainingAttempts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePointsEarned">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/UpdatePointsEarned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PenalizeAbandon">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/PenalizeAbandon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishMatch">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/FinishMatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCharBD">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/UpdateCharBD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchStatus">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetMatchStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemainingAttempts">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/UpdateRemainingAttempts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWinner">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/UpdateWinner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWinnerID">
+      <soap12:operation soapAction="http://tempuri.org/IGameServices/GetWinnerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IWordServices" type="tns:IWordServices">
+    <wsp:PolicyReference URI="#NetTcpBinding_IWordServices_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWordsPerCategory">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetWordsPerCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWordSpanish">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetWordSpanish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWordEnglish">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetWordEnglish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClueSpanish">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetClueSpanish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClueEnglish">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetClueEnglish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByWordID">
+      <soap12:operation soapAction="http://tempuri.org/IWordServices/GetCategoryByWordID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HangedManService">
+    <wsdl:port name="NetTcpBinding_IPlayerServices" binding="tns:NetTcpBinding_IPlayerServices">
+      <soap12:address location="net.tcp://192.168.1.69:8081/Services" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.69:8081/Services</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameServices" binding="tns:NetTcpBinding_IGameServices">
+      <soap12:address location="net.tcp://192.168.1.69:8081/Services" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.69:8081/Services</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IWordServices" binding="tns:NetTcpBinding_IWordServices">
+      <soap12:address location="net.tcp://192.168.1.69:8081/Services" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.1.69:8081/Services</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
