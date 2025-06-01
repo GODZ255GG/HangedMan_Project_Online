@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BackButton" xml:space="preserve">
+    <value> Back to Login</value>
+  </data>
+  <data name="BirthDateRegister" xml:space="preserve">
+    <value>Birth date</value>
+  </data>
+  <data name="CancelCreateMatchButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CancelCreateMatchMessage" xml:space="preserve">
+    <value>Do you want to cancel the creation of the game?</value>
+  </data>
+  <data name="CancelModifyConfirmation" xml:space="preserve">
+    <value>Exit without save changes?</value>
+  </data>
+  <data name="CancelModifyHead" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="CancelRegisterButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CategoriesCreateMatch" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="ChallengerLeaveMatchMessage" xml:space="preserve">
+    <value>The challenger has left the game</value>
+  </data>
+  <data name="ConfirmationMessage" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="ConfirmationModify" xml:space="preserve">
+    <value>Profile modified</value>
+  </data>
+  <data name="ConfirmationUserRegister" xml:space="preserve">
+    <value>You have registered in the game!</value>
+  </data>
+  <data name="CreateAccountButton" xml:space="preserve">
+    <value>Create account</value>
+  </data>
+  <data name="CreateMatch" xml:space="preserve">
+    <value>Create match</value>
+  </data>
+  <data name="CreateMatchButton" xml:space="preserve">
+    <value>Create match</value>
+  </data>
+  <data name="DataGridColumnChallengerDefeat" xml:space="preserve">
+    <value>Defeated player</value>
+  </data>
+  <data name="DataGridColumnDate" xml:space="preserve">
+    <value>Date of match</value>
+  </data>
+  <data name="DataGridColumnEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DataGridColumnJoin" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="DataGridColumnNickName" xml:space="preserve">
+    <value>NickName</value>
+  </data>
+  <data name="EmailAlreadyRegistered" xml:space="preserve">
+    <value>The email is already registered</value>
+  </data>
+  <data name="EmailLoggin" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailNotValid" xml:space="preserve">
+    <value>Please enter a valid email</value>
+  </data>
+  <data name="EmailRegister" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EnglishButton" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnglishComboItem" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnglishLanguage" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="ErrorLoadingHistory" xml:space="preserve">
+    <value>Error Loading History</value>
+  </data>
+  <data name="ErrorLoadingMatches" xml:space="preserve">
+    <value>Error Loading Matches</value>
+  </data>
+  <data name="ErrorLogginMessage" xml:space="preserve">
+    <value>Wrong email or password!</value>
+  </data>
+  <data name="ErrorModify" xml:space="preserve">
+    <value>Modify error</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error Title</value>
+  </data>
+  <data name="ErrorUserRegister" xml:space="preserve">
+    <value>Mistake! user could not be registered</value>
+  </data>
+  <data name="ExitGameButton" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="FirstNameRegister" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="GameLanguageLabel" xml:space="preserve">
+    <value>Select the language of the word</value>
+  </data>
+  <data name="GuestLeaveMatchMessage" xml:space="preserve">
+    <value>The guest left the game!</value>
+  </data>
+  <data name="HangmanTittle" xml:space="preserve">
+    <value>Hangman Game</value>
+  </data>
+  <data name="HistoryColumnDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="HistoryColumnLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="HistoryColumnOpponent" xml:space="preserve">
+    <value>Opponent</value>
+  </data>
+  <data name="HistoryColumnResult" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="HistoryColumnWord" xml:space="preserve">
+    <value>Word</value>
+  </data>
+  <data name="IncompleteLogginMessage" xml:space="preserve">
+    <value>Please enter all the data!</value>
+  </data>
+  <data name="IntroButton" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="JoinGameMessage" xml:space="preserve">
+    <value>You joined!</value>
+  </data>
+  <data name="JoinMatchErrorMessage" xml:space="preserve">
+    <value>Error when joining the game</value>
+  </data>
+  <data name="LabelBirthDateEmpty" xml:space="preserve">
+    <value>Please select your birth date</value>
+  </data>
+  <data name="labelCreateNewAccount" xml:space="preserve">
+    <value>Create new account</value>
+  </data>
+  <data name="LabelEmailEmpty" xml:space="preserve">
+    <value>Please enter an email</value>
+  </data>
+  <data name="LabelFirstSurnameEmpty" xml:space="preserve">
+    <value>Please enter your first surname</value>
+  </data>
+  <data name="LabelFullNameEmpty" xml:space="preserve">
+    <value>Please enter your full name</value>
+  </data>
+  <data name="LabelNickEmpty" xml:space="preserve">
+    <value>Please enter a nickname</value>
+  </data>
+  <data name="LabelPasswordEmpty" xml:space="preserve">
+    <value>Please enter a password</value>
+  </data>
+  <data name="LabelPaswwordConfirmationEmpty" xml:space="preserve">
+    <value>Please re enter a password </value>
+  </data>
+  <data name="LabelPointsEarned" xml:space="preserve">
+    <value>Points earned: </value>
+  </data>
+  <data name="LabelSecondSurnameEmpty" xml:space="preserve">
+    <value>Please enter your second surname </value>
+  </data>
+  <data name="LabelTelephoneEmpty" xml:space="preserve">
+    <value>Please enter your telephone</value>
+  </data>
+  <data name="LeaveMatchButton" xml:space="preserve">
+    <value>Leave match</value>
+  </data>
+  <data name="LeaveMatchConfirmation" xml:space="preserve">
+    <value>Do you want to leave the game?</value>
+  </data>
+  <data name="LobbyLabel" xml:space="preserve">
+    <value>Available games</value>
+  </data>
+  <data name="LogginMessage" xml:space="preserve">
+    <value>Welcome to the game</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
+  <data name="LogOutButton" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="LogOutMessage" xml:space="preserve">
+    <value>Do you want to exit the game?</value>
+  </data>
+  <data name="LosserChallengerMessage" xml:space="preserve">
+    <value>Guest guessed the word, you lost!</value>
+  </data>
+  <data name="LosserMatchMessage" xml:space="preserve">
+    <value>You lose!</value>
+  </data>
+  <data name="LostYouLeft" xml:space="preserve">
+    <value>Lost (you left)</value>
+  </data>
+  <data name="MatchAbandoned" xml:space="preserve">
+    <value>Abandoned</value>
+  </data>
+  <data name="MatchCreatedMessage" xml:space="preserve">
+    <value>Game created!</value>
+  </data>
+  <data name="MatchHistoryButton" xml:space="preserve">
+    <value>Match history</value>
+  </data>
+  <data name="MatchHistoryLabel" xml:space="preserve">
+    <value>Match history</value>
+  </data>
+  <data name="MatchIncomplete" xml:space="preserve">
+    <value>Incomplete</value>
+  </data>
+  <data name="MatchLanguage" xml:space="preserve">
+    <value>Match language</value>
+  </data>
+  <data name="MatchLeaveMessage" xml:space="preserve">
+    <value>You have abandoned the game</value>
+  </data>
+  <data name="MatchLeaveMessageError" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="MatchLost" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="MatchWon" xml:space="preserve">
+    <value>Won</value>
+  </data>
+  <data name="ModifyProfileButton" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="NamesNotValid" xml:space="preserve">
+    <value>Please check your full name and do not use accents.</value>
+  </data>
+  <data name="FullNameRegister" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="NicknameAlreadyRegistered" xml:space="preserve">
+    <value>The nickname is already registered</value>
+  </data>
+  <data name="NicknameNotValid" xml:space="preserve">
+    <value>Please enter a valid nickname, only numbers and letters</value>
+  </data>
+  <data name="NickNameRegister" xml:space="preserve">
+    <value>Nickname</value>
+  </data>
+  <data name="PasswordConfirmationRegister" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="PasswordDoesntMatch" xml:space="preserve">
+    <value>Passwords don't match!</value>
+  </data>
+  <data name="PasswordLoggin" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordNotValid" xml:space="preserve">
+    <value>The password must be between 8 and 15 characters and can only contain letters and numbers</value>
+  </data>
+  <data name="PasswordRegister" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PhoneNotValid" xml:space="preserve">
+    <value>Please enter a valid phone</value>
+  </data>
+  <data name="PhoneNumberRegister" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="PlayerJoinedMessage" xml:space="preserve">
+    <value>Other player has joined!</value>
+  </data>
+  <data name="ProfileViewLabel" xml:space="preserve">
+    <value>Your profile</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Don't have an account? Register here</value>
+  </data>
+  <data name="SecondNameRegister" xml:space="preserve">
+    <value>Second name</value>
+  </data>
+  <data name="SelectWordCreateMatch" xml:space="preserve">
+    <value>Select the word</value>
+  </data>
+  <data name="SpanishButton" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="SpanishComboItem" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="SpanishLanguage" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="TelephoneAlreadyRegistered" xml:space="preserve">
+    <value>The telephone is already registered</value>
+  </data>
+  <data name="TelephoneRegister" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Tittle" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="UnknownLanguage" xml:space="preserve">
+    <value>Unknown Language</value>
+  </data>
+  <data name="UserRegisterLabel" xml:space="preserve">
+    <value>Don't have an account? create one!</value>
+  </data>
+  <data name="ViewProfileButton" xml:space="preserve">
+    <value>View Profile</value>
+  </data>
+  <data name="WaitGuestMessage" xml:space="preserve">
+    <value>Waiting for another player</value>
+  </data>
+  <data name="WaitingForPlayer" xml:space="preserve">
+    <value>Waiting for player</value>
+  </data>
+  <data name="WarningCreateMatch" xml:space="preserve">
+    <value>Please select the category and word!</value>
+  </data>
+  <data name="WinnerMatchMessageChallenger" xml:space="preserve">
+    <value>You win!</value>
+  </data>
+  <data name="WinnerMatchMessageGuest" xml:space="preserve">
+    <value>You win!</value>
+  </data>
+  <data name="WonOpponentLeft" xml:space="preserve">
+    <value>Won (opponent Left)</value>
+  </data>
+  <data name="WordNotAvailable" xml:space="preserve">
+    <value>Word not available</value>
+  </data>
+  <data name="labelSubtitle" xml:space="preserve">
+    <value>Login to continue your adventure</value>
+  </data>
+  <data name="labelTitle" xml:space="preserve">
+    <value>Welcome to Hangman</value>
+  </data>
+  <data name="buttonCreate" xml:space="preserve">
+    <value>Register Account</value>
+  </data>
+  <data name="NoMatchesAvailable" xml:space="preserve">
+    <value>No games are currently available. Be the first to create one!</value>
+  </data>
+</root>

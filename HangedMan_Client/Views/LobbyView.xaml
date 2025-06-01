@@ -1,0 +1,322 @@
+﻿<Page x:Class="HangedMan_Client.Views.LobbyView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:HangedMan_Client.Properties"
+      xmlns:local="clr-namespace:HangedMan_Client.Resources"
+      mc:Ignorable="d" 
+      Width="1200" Height="800"
+      Title="Lobby">
+
+    <Page.Resources>
+        <local:LanguageConverter x:Key="LanguageConverter"/>
+
+        <Style x:Key="RoundedComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                                <DockPanel>
+                                    <ContentPresenter x:Name="ContentSite"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Margin="3,0,0,0"/>
+                                    <ToggleButton DockPanel.Dock="Right"
+                                      Focusable="False"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press"
+                                      Background="Transparent"
+                                      BorderThickness="0"/>
+                                </DockPanel>
+                            </Border>
+                            <Popup x:Name="PART_Popup"
+                       Placement="Bottom"
+                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                       AllowsTransparency="True"
+                       Focusable="False"
+                       PopupAnimation="Slide">
+                                <Border Background="White"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                                    <ScrollViewer>
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CreateButtonStyle" TargetType="Button">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Resources/iconAdd.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                            <Label Content="Create Game" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LanguageButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ProfileButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="17">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Border CornerRadius="20" Background="White"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MaxHeight="50"/>
+                <RowDefinition Height="Auto" MaxHeight="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="20,20,0,0"  Background="#1E40AF">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Content="Hangedman" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
+                    <Button x:Name="btnProfile" Margin="840,0,0,0" FontSize="16" Background="#EFF6FF" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="152" Height="36" Click="BtnProfile_Click" Style="{StaticResource ProfileButtonStyle}" BorderBrush="{x:Null}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Resources/iconPlayer.png" Width="25" Height="25" Margin="0,0,5,0"/>
+                            <Label x:Name="lblPlayerNickname" Content="Player 1" Foreground="#1E40AF" FontWeight="Bold" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
+                <Image Source="/Resources/iconControl.png" Width="40" Height="28" VerticalAlignment="Center" Margin="160,0,0,0"/>
+                <Label Content=" Available Games" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Vertical">
+                <Border Width="1000" 
+                        Height="350"
+                        CornerRadius="10" 
+                        BorderThickness="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+                        <!-- Mostrar mensaje si no hay partidas -->
+                        <TextBlock x:Name="NoMatchesText" 
+                                   Text="{x:Static p:Resources.NoMatchesAvailable}"
+                                   Visibility="Collapsed"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontFamily="Monocraft"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="#6B7280"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="0,20"/>
+                        <!-- Mostrar partidas solo si hay disponibles -->
+                        <ScrollViewer x:Name="MatchesScrollViewer"
+                                      VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled"
+                                      Height="308"
+                                      Visibility="Visible">
+                            <ItemsControl x:Name="MatchesItemsControl" ItemsSource="{Binding}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" 
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Top"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <!-- Tarjeta de partida -->
+                                        <Border Width="266" 
+                                                Height="160" 
+                                                Margin="15" 
+                                                CornerRadius="5"
+                                                Background="White"
+                                                BorderBrush="#6B7280" 
+                                                BorderThickness="1">
+
+                                            <Grid Margin="15">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" Margin="-5,0,0,0">
+                                                    <Label Content="Creado por:" 
+                                                           FontFamily="Monocraft"
+                                                           FontSize="16"
+                                                           FontWeight="Bold"
+                                                           Foreground="#1E40AF"/>
+                                                    <!-- NickName del creador -->
+                                                    <Label Content="{Binding NickNameChallenger, StringFormat='Creador: {0}'}" 
+                                                           FontFamily="Monocraft"
+                                                           FontSize="16"
+                                                           FontWeight="Bold"
+                                                           Foreground="#1E40AF"
+                                                           Margin="-5,0,0,5"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" Margin="-5,0,0,0">
+                                                    <!-- Idioma de la partida -->
+                                                    <Label Content="Idioma de la partida:"
+                                                           FontFamily="Monocraft"
+                                                           FontSize="14"
+                                                           Foreground="#6B7280"/>
+                                                    
+                                                    <!-- Idioma de la partida -->
+                                                    <Label Content="{Binding MatchLanguage, Converter={StaticResource LanguageConverter}}" 
+                                                           FontFamily="Monocraft"
+                                                           FontSize="14"
+                                                           Foreground="#6B7280"
+                                                           Margin="-5,0,0,5"/>
+                                                </StackPanel>
+
+                                                <!-- Fecha de la partida -->
+                                                <TextBlock Text="{Binding DateMatch, StringFormat='Fecha: {0}'}" 
+                                                           Grid.Row="2"
+                                                           FontFamily="Monocraft"
+                                                           FontSize="14"
+                                                           Foreground="#4d9eed"
+                                                           Margin="0,0,0,10"/>
+
+                                                <!-- Botón Unirse -->
+                                                <Button x:Name="btnJoin" Content="{x:Static p:Resources.DataGridColumnJoin}" 
+                                                        Grid.Row="3"
+                                                        Command="{Binding DataContext.JoinCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                                        CommandParameter="{Binding}" 
+                                                        Click="BtnJoinMatch_Click"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Bottom"
+                                                        Width="245"
+                                                        Height="35"
+                                                        FontFamily="Monocraft" 
+                                                        Foreground="#D6D5A8" 
+                                                        FontSize="14" 
+                                                        FontWeight="Bold" 
+                                                        Cursor="Hand"
+                                                        Background="#1E40AF">
+                                                    <Button.Style>
+                                                        <Style TargetType="{x:Type Button}">
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#1B2430"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Button.Style>
+                                                    <Button.Template>
+                                                        <ControlTemplate TargetType="{x:Type Button}">
+                                                            <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Button.Template>
+                                                </Button>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,5,0,0">
+                <Border Width="1000" 
+                        Height="330"
+                        Background="#FFD7D8DA" 
+                        CornerRadius="10" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Direction="270"
+                                          ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.2"/>
+                    </Border.Effect>
+                    
+                    <StackPanel Orientation="Vertical" Margin="20,20,20,20">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="/Resources/iconPlus.png" Width="20" Height="20"/>
+                            <Label Content="Create New Game" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
+                        </StackPanel>
+                        <Label Content="Language"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Spanish" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Margin="0,0,5,0" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="SpanishSelection_Click"/>
+                            <Button Content="English" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="EnglishSelection_Click"/>
+                        </StackPanel>
+                        <Label Content="Category"/>
+                        <ComboBox x:Name="cbxCategory" Height="40" SelectionChanged="CbxCategory_SelectionChanged" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center"/>
+                        <Label Content="Word"/>
+                        <ComboBox x:Name="cbxWord" Height="40" Margin="0,0,0,10" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center"/>
+                        <Button x:Name="btnCreateGame" Style="{StaticResource CreateButtonStyle}"  Height="40" Background="#16A34A" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="BtnCreateGame_Click"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#1E40AF" CornerRadius="0,0,20,20" Margin="0,7,0,0" Height="21"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

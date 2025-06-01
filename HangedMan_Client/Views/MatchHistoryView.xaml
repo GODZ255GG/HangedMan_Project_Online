@@ -1,0 +1,124 @@
+﻿<Page x:Class="HangedMan_Client.Views.MatchHistoryView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:HangedMan_Client.Properties"
+      xmlns:local="clr-namespace:HangedMan_Client.Resources"
+      mc:Ignorable="d" 
+      Width="1200" Height="800"
+      Title="MatchHistoryView">
+
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#D1D5DB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"
+                              Margin="10,5"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Border CornerRadius="20" Background="White"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="20,20,0,0"  Background="#1E40AF" Height="70">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Image Source="/Resources/iconPlayer.png" Width="50" Height="50" Margin="40,10,0,10"/>
+                    <Label Content="Historial de partidas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Grid.Row="1" >
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Resources/wallpaperV2.png"/>
+                </StackPanel.Background>
+                <StackPanel Margin="20">
+                    <Border Grid.Row="1" Width="900" Height="610" HorizontalAlignment="Center" Padding="10" VerticalAlignment="Center"  CornerRadius="16" Background="#E5E7EB" BorderBrush="#EEE" BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Vertical">
+                                <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged" Margin="10,10,10,0" Background="Transparent" BorderThickness="0" SelectedIndex="0">
+                                    <TabItem Header="&#x1F3C6; Won Games"/>
+                                    <TabItem Header="&#x1F645; Lost Games"/>
+                                    <TabItem Header="&#x26A0; Abandoned Games"/>
+                                </TabControl>
+                                <Separator Margin="0,0,0,10" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Height="496">
+                                <Label x:Name="lblTitle" Content="Your Victories" FontSize="24" FontWeight="Bold" Margin="20"/>
+                                <!-- Cards -->
+                                <ItemsControl x:Name="HistoryList">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="0,0,0,20" Padding="18" Background="White" BorderBrush="#E3E6EC" BorderThickness="1" CornerRadius="12">
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Date, StringFormat={}{0:MMM d: yyyy}}" Foreground="#888" FontSize="14"/>
+                                                    <TextBlock>
+                                        <Run Text="Guessed word: "/>        
+                                        <Run Text="{Binding Word}" Foreground="#2563eb" FontWeight="Bold"/>
+                                                    </TextBlock>
+                                                    <TextBlock>
+                                        <Run Text="Oponente: "/>
+                                        <Run Text="{Binding Opponent}" FontWeight="SemiBold"/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <!-- Mensaje vacío -->
+                                <TextBlock x:Name="lblEmptyMessage"
+                           Text=""
+                           FontSize="18"
+                           Foreground="#888"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,40,0,0"
+                           Visibility="Collapsed"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,5,0,0">
+                                <Button x:Name="PrevPageBtn" Width="42" Height="32" Margin="0,0,10,0" Background="#F1F2F6" BorderBrush="Transparent" 
+                                        Click="PrevPageBtn_Click" Cursor="Hand" Style="{StaticResource ButtonStyle}">
+                                    <TextBlock Text="&#x25C0;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                                <Button x:Name="NextPageBtn" Width="42" Height="32" Background="#2563eb" BorderBrush="Transparent" 
+                                        Click="NextPageBtn_Click" Cursor="Hand" Style="{StaticResource ButtonStyle}">
+                                    <TextBlock Text="&#x25B6;" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Button x:Name="btnBack" Content="Volver" Width="100" Height="40" Margin="0,20,0,0" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Background="#2563eb" Foreground="White" FontWeight="Bold" Click="btnBack_Click" BorderBrush="{x:Null}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Vertical">
+                <Border Background="#1E40AF" CornerRadius="0,0,20,20" Height="21"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

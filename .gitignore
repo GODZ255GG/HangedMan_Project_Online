@@ -1,0 +1,103 @@
+# Archivos generados por Visual Studio
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.cache
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+
+# Archivos de compilación
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Archivos de paquetes NuGet
+*.nupkg
+packages/
+[Nn]u[Gg]et.[Ll]ocal.[Dd]b
+
+# Archivos de Resharper
+_ReSharper.*
+*.resharper
+*.sln.iml
+
+# Archivos de SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+# Archivos de publicación
+publish/
+
+# Archivos de Azure
+*.azurePub
+*.pubxml
+
+# Archivos de MSTest
+*.TestResult.xml
+*.trx
+
+# Archivos de usuario
+*.userprefs
+*.usertasks
+
+# Archivos de MacOS
+.DS_Store
+
+# Archivos temporales
+*.tmp
+*.temp
+*.TMP
+
+# Archivos de registro
+*.log
+*.log.*
+*.tlog
+
+# Archivos de caché de Visual Studio
+.vs/
+.vscode/
+
+# Archivos de ReSharper
+_ReSharper.*
+*.ReSharper
+
+# Archivos de Rider
+.idea/
+
+# Archivos de código generado
+*.Generated.cs
+
+# Archivos de configuración local
+appsettings.Local.json
+appsettings.Development.json
+
+# Archivos de base de datos local
+*.db
+*.sqlite
+
+# Archivos de compilación de WPF
+*.psess
+*.vsp
+*.pidb
+
+# Archivos de instalador
+*.msi
+*.msm
+*.msp
+
+# Archivos de caché de NuGet
+nuget.exe

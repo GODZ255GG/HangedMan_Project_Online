@@ -1,0 +1,58 @@
+﻿<Window x:Class="HangedMan_Client.Views.WinDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="¡Felicidades!" Width="1200" Height="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Window.Resources>
+        <Style x:Key="AccionButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border CornerRadius="20" Width="1200" Height="800">
+        <Border CornerRadius="12" Background="White" Height="350" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="2" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <!-- Encabezado con fondo degradado -->
+                <Border Grid.Row="0" CornerRadius="12,12,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#5B4DF7" Offset="0"/>
+                            <GradientStop Color="#8B5CF6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Resources/iconWin.png" Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="¡FELICIDADES!" Foreground="White" FontWeight="Bold" FontSize="22" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                    </StackPanel>
+                </Border>
+                <!-- Contenido principal -->
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Image Source="/Resources/iconCheck.png" Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label Content="¡Lo lograste!" FontWeight="Bold" FontSize="18" Foreground="#222" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+                    <Label x:Name="lblMessage" Content="Has adivinado correctamente la palabra" FontSize="13" Foreground="#666" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                </StackPanel>
+                <!-- Botón aceptar -->
+                <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnAcept" Content="Aceptar" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
