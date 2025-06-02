@@ -134,7 +134,7 @@
             <Border CornerRadius="20,20,0,0"  Background="#1E40AF" Height="70">
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <Image Source="/Resources/iconPlayer.png" Width="50" Height="50" Margin="40,10,0,10"/>
-                    <Label Content="Modificación de la información de la cuenta" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
+                    <Label Content="{x:Static p:Resources.TitleEditAccount}" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
                 </StackPanel>
             </Border>
 
@@ -170,7 +170,7 @@
                             <!-- Encabezado -->
                             <StackPanel Grid.Row="0" Margin="0,0,0,15">
                                 <Image Source="/Resources/iconPlayer.png" Width="100" Height="100"/>
-                                <Label x:Name="lblSubtitle" Content="Editar Información de Cuenta" 
+                                <Label x:Name="lblSubtitle" Content="{x:Static p:Resources.lblSubtitle}" 
                        Foreground="Black" 
                        FontSize="18"
                        HorizontalAlignment="Center" FontWeight="Bold"/>
@@ -258,12 +258,12 @@
 
                             <!-- Botones de acción -->
                             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button x:Name="btnCancel" Content="Cancelar"
+                                <Button x:Name="btnCancel" Content="{x:Static p:Resources.CancelRegisterButton}"
                         Width="260" Height="45" Style="{StaticResource ActionButtonStyle}"
                         Background="#FFE54646" Foreground="White"  Margin="0,0,10,0"
                         FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Click="BtnCancel_Click"/>
 
-                                <Button x:Name="btnConfirm" Content="Confirmar" FontWeight="Bold"
+                                <Button x:Name="btnConfirm" Content="{x:Static p:Resources.AceptButton}" FontWeight="Bold"
                         Width="260" Height="45" Foreground="White" Style="{StaticResource ActionButtonStyle}"
                         FontSize="16" Background="#1BDE3F" BorderBrush="{x:Null}" Click="BtnConfirm_Click"/>
                             </StackPanel>

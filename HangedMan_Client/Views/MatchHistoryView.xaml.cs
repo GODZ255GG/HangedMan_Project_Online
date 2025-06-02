@@ -23,13 +23,15 @@ namespace HangedMan_Client.Views
         {
             InitializeComponent();
             Loaded += async (s, e) => await InitializeData();
+            tbmWonGame.Header = "&#x1F3C6;" + " " + Properties.Resources.LabelWonMach;
+            tbmLostGame.Header = "&#x1F645;" + " " + Properties.Resources.LabelLostMach;
+            tbmAbandonedGame.Header = "&#x26A0;" + " " + Properties.Resources.LabelMatchAbandoned;
         }
 
         private async Task InitializeData()
         {
             try
             {
-                // Mostrar puntos
                 var player = SessionManager.Instance.LoggedInPlayer;
                 var matches = await gameServicesClient.GetMatchesPlayedAsync(player.PlayerID);
 
@@ -42,8 +44,10 @@ namespace HangedMan_Client.Views
             catch (Exception ex)
             {
                 var message = $"{Properties.Resources.ErrorLoadingHistory}: {ex.Message}";
-                var dialog = new MessageBoxInformation(message, 3);
-                dialog.Owner = Application.Current.MainWindow;
+                var dialog = new MessageBoxInformation(message, 3)
+                {
+                    Owner = Application.Current.MainWindow
+                };
                 dialog.ShowDialog();
             }
         }
@@ -57,15 +61,15 @@ namespace HangedMan_Client.Views
             {
                 case 0:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchWon || x.Result == Properties.Resources.WonOpponentLeft);
-                    emptyMessage = "No tienes partidas ganadas.";
+                    emptyMessage = Properties.Resources.EmptyWins;
                     break;
                 case 1:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchLost || x.Result == Properties.Resources.LostYouLeft);
-                    emptyMessage = "No tienes partidas perdidas.";
+                    emptyMessage = Properties.Resources.EmptyLost;
                     break;
                 case 2:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchAbandoned);
-                    emptyMessage = "No tienes partidas abandonadas.";
+                    emptyMessage = Properties.Resources.EmptyAbandoned;
                     break;
             }
 
@@ -94,13 +98,13 @@ namespace HangedMan_Client.Views
             switch (Tabs.SelectedIndex)
             {
                 case 0:
-                    lblTitle.Content = "Partidas ganadas";
+                    lblTitle.Content = Properties.Resources.TitleYourVictories;
                     break;
                 case 1:
-                    lblTitle.Content = "Partidas perdidas";
+                    lblTitle.Content = Properties.Resources.TitleLostGames;
                     break;
                 case 2:
-                    lblTitle.Content = "Partidas abandonadas";
+                    lblTitle.Content = Properties.Resources.TitleAbandonedGames;
                     break;
             }
 
@@ -168,7 +172,7 @@ namespace HangedMan_Client.Views
 
         private string GetMatchResult(Match match, int playerId)
         {
-            if (match.StatusMatchID == 2) // Abandoned
+            if (match.StatusMatchID == 2)
             {
                 if (match.WinnerID == null) return Properties.Resources.MatchAbandoned;
                 return match.WinnerID == playerId
@@ -181,7 +185,7 @@ namespace HangedMan_Client.Views
             return Properties.Resources.MatchIncomplete;
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LobbyView());
         }

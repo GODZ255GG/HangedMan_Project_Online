@@ -10,8 +10,8 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class LoginView : Page
     {
-        PlayerServicesClient playerServices = new PlayerServicesClient();
-        private MainWindow mainWindow;
+        private readonly PlayerServicesClient playerServices = new PlayerServicesClient();
+        private readonly MainWindow mainWindow;
         public LoginView(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace HangedMan_Client.Views
             mainWindow.changeLanguageLogin("es");
         }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.goToRegisterView();
         }
@@ -40,7 +40,7 @@ namespace HangedMan_Client.Views
                 string email = txtEmail.Text;
                 string password = txtPassword.Password;
 
-                if (!checkCredentials(email, password))
+                if (!CheckCredentials(email, password))
                 {
                     string message = Properties.Resources.IncompleteLogginMessage;
                     ShowMessage(message, 2);
@@ -70,7 +70,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private bool checkCredentials(string emai, string password)
+        private bool CheckCredentials(string emai, string password)
         {
             if (string.IsNullOrEmpty(emai) || string.IsNullOrEmpty(password))
             {
@@ -88,8 +88,10 @@ namespace HangedMan_Client.Views
 
         private void ShowMessage(string message, int type)
         {
-            var dialog = new MessageBoxInformation(message, type);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new MessageBoxInformation(message, type)
+            {
+                Owner = Application.Current.MainWindow
+            };
             dialog.ShowDialog();
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace HangedMan_Client.Views
 {
@@ -8,17 +7,10 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class LossDialog : Window
     {
-        private string message;
         public LossDialog(string message)
         {
             InitializeComponent();
-            this.message = message;
-            TextView(message);
-        }
-
-        private void TextView(String message)
-        {
-            lblMessage.Content = message;
+            this.lblMessage.Content = message;
         }
 
         private void BtnAcept_Click(object sender, RoutedEventArgs e)

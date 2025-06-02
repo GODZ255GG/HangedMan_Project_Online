@@ -1,5 +1,4 @@
 ﻿using HangedMan_Client.Views;
-using System;
 using System.Windows;
 
 namespace HangedMan_Client
