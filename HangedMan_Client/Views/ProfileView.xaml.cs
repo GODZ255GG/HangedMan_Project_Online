@@ -8,14 +8,14 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class ProfileView : Page
     {
-        PlayerServicesClient playerServicesClient = new PlayerServicesClient();
+        private readonly PlayerServicesClient playerServicesClient = new PlayerServicesClient();
         public ProfileView()
         {
             InitializeComponent();
-            showInformationPlayer();
+            ShowInformationPlayer();
         }
 
-        private void showInformationPlayer()
+        private void ShowInformationPlayer()
         {
             Player player = SessionManager.Instance.LoggedInPlayer;
             lblPlayerNickname.Content = player.NickName;
@@ -23,7 +23,7 @@ namespace HangedMan_Client.Views
             txtEmail.Text = player.Email;
             txtTelephone.Text = player.PhoneNumber;
             txtBirthDate.Text = player.BirthDate;
-            lblGlobalScore.Content = playerServicesClient.GetPoints(player.PlayerID) + " " + "puntos";
+            lblGlobalScore.Content = playerServicesClient.GetPoints(player.PlayerID) + " " + Properties.Resources.labelPoints;
         }
 
         private void BtnBackLobby_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -11,15 +11,17 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class WaitingRoomView : Page
     {
-        GameServicesClient gameServicesClient = new GameServicesClient();
-        Match match;
-        private DispatcherTimer dispatcherTimer;
+        private readonly GameServicesClient gameServicesClient = new GameServicesClient();
+        private readonly Match match;
+        private readonly DispatcherTimer dispatcherTimer;
         public WaitingRoomView(Match match)
         {
             InitializeComponent();
             this.match = match;
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Start();
         }
@@ -27,8 +29,10 @@ namespace HangedMan_Client.Views
         private void BtnLeaveMatch_Click(object sender, RoutedEventArgs e)
         {
             string message = Properties.Resources.LeaveMatchConfirmation;
-            var dialog = new QuestionMessage(message);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new QuestionMessage(message)
+            {
+                Owner = Application.Current.MainWindow
+            };
             bool? result = dialog.ShowDialog();
 
             if (result == true)
@@ -65,10 +69,10 @@ namespace HangedMan_Client.Views
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            isThereGuest();
+            IsThereGuest();
         }
 
-        private void isThereGuest()
+        private void IsThereGuest()
         {
             bool isThereGuest = gameServicesClient.IsThereGuest(match.MatchID);
             if (isThereGuest)
@@ -77,8 +81,10 @@ namespace HangedMan_Client.Views
                 string message = Properties.Resources.PlayerJoinedMessage;
                 lblWaitingPlayer.Content = message;
                 btnLeaveMatch.IsEnabled = false;
-                DispatcherTimer delayTimer = new DispatcherTimer();
-                delayTimer.Interval = TimeSpan.FromSeconds(1);
+                DispatcherTimer delayTimer = new DispatcherTimer
+                {
+                    Interval = TimeSpan.FromSeconds(1)
+                };
                 delayTimer.Tick += (sender, e) =>
                 {
                     delayTimer.Stop();
@@ -90,8 +96,10 @@ namespace HangedMan_Client.Views
 
         private void ShowMessage(string message, int type)
         {
-            var dialog = new MessageBoxInformation(message, type);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new MessageBoxInformation(message, type)
+            {
+                Owner = Application.Current.MainWindow
+            };
             dialog.ShowDialog();
         }
     }

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:HangedMan_Client.Properties"
       xmlns:local="clr-namespace:HangedMan_Client.Views"
       mc:Ignorable="d" 
       Width="1200" Height="800"
@@ -75,7 +76,7 @@
             <Border CornerRadius="20,20,0,0"  Background="#1E40AF" Height="70">
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <Image Source="/Resources/iconPlayer.png" Width="50" Height="50" Margin="40,10,0,10"/>
-                    <Label Content="Información de la cuenta" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
+                    <Label Content="{x:Static p:Resources.ProfileViewLabel}" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
                 </StackPanel>
             </Border>
 
@@ -105,23 +106,23 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center">
-                                <Label Content="Nombre completo" FontWeight="Bold" FontSize="16"/>
+                                <Label Content="{x:Static p:Resources.FullNameRegister}" FontWeight="Bold" FontSize="16"/>
                                 <TextBox x:Name="txtFullName" Style="{StaticResource RoundedTextBoxStyle}" Height="38" Padding="8" 
                          Foreground="Black" Background="#FFF9F9F9" FontSize="14"
                          BorderBrush="#D1D5DB" Margin="0,0,0,10" IsEnabled="False"/>
-                                <Label Content="Email" FontWeight="Bold" FontSize="16"/>
+                                <Label Content="{x:Static p:Resources.EmailLoggin}" FontWeight="Bold" FontSize="16"/>
                                 <TextBox x:Name="txtEmail" Style="{StaticResource RoundedTextBoxStyle}" Height="38" Padding="8" 
                          Foreground="Black" Background="#FFF9F9F9" FontSize="14"
                          BorderBrush="#D1D5DB" Margin="0,0,0,10" IsEnabled="False"/>
-                                <Label Content="Telefono" FontWeight="Bold" FontSize="16"/>
+                                <Label Content="{x:Static p:Resources.TelephoneRegister}" FontWeight="Bold" FontSize="16"/>
                                 <TextBox x:Name="txtTelephone" Style="{StaticResource RoundedTextBoxStyle}" Height="38" Padding="8" 
                          Foreground="Black" Background="#FFF9F9F9" FontSize="14"
                          BorderBrush="#D1D5DB" Margin="0,0,0,10" IsEnabled="False"/>
-                                <Label Content="Fecha de nacimiento" FontWeight="Bold" FontSize="16"/>
+                                <Label Content="{x:Static p:Resources.BirthDateRegister}" FontWeight="Bold" FontSize="16"/>
                                 <TextBox x:Name="txtBirthDate" Style="{StaticResource RoundedTextBoxStyle}" Height="38" Padding="8" 
                          Foreground="Black" Background="#FFF9F9F9" FontSize="14"
                          BorderBrush="#D1D5DB" Margin="0,0,0,10" IsEnabled="False"/>
-                                <Label Content="Global Score" FontWeight="Bold" FontSize="16"/>
+                                <Label Content="{x:Static p:Resources.LabelPointsEarned}" FontWeight="Bold" FontSize="16"/>
                                 <Border Height="40" Width="150" HorizontalAlignment="Left" CornerRadius="20">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Pad">
@@ -139,7 +140,7 @@
                                     </Border.Background>
                                     <StackPanel Orientation="Horizontal" Margin="5">
                                         <Image Source="/Resources/iconTrophy.png" Height="30" Width="30" HorizontalAlignment="Left"/>
-                                        <Label x:Name="lblGlobalScore" Content="1000 points" FontWeight="Bold" FontSize="13" Foreground="White" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                                        <Label x:Name="lblGlobalScore" FontWeight="Bold" FontSize="13" Foreground="White" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -148,13 +149,13 @@
                                 <Button x:Name="btnBackLobby" Background="#6B7280" Width="150" Height="45" BorderBrush="{x:Null}" Style="{StaticResource ActionButtonStyle}" Margin="0,0,5,0" Click="BtnBackLobby_Click">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                         <Image Source="/Resources/iconBackLobby.png" Height="30" Width="30"/>
-                                        <Label Content="Regresar " FontWeight="Bold" FontSize="10" Foreground="White" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static p:Resources.BackLobby}" FontWeight="Bold" FontSize="10" Foreground="White" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button>
                                 <Button x:Name="btnEditInfo" Background="#2563EB" Width="150" Height="45" BorderBrush="{x:Null}" Style="{StaticResource ActionButtonStyle}" Click="BtnEditInfo_Click">
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                         <Image Source="/Resources/iconEdit.png" Height="30" Width="30"/>
-                                        <Label Content="Editar Información" FontWeight="Bold" FontSize="10" Foreground="White" VerticalAlignment="Center"/>
+                                        <Label Content="{x:Static p:Resources.ModifyProfileButton}" FontWeight="Bold" FontSize="10" Foreground="White" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

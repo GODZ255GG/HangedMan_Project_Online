@@ -23,8 +23,10 @@ namespace HangedMan_Client.Views
         {
             this.Close();
             string message = Properties.Resources.LogOutMessage;
-            var dialog = new QuestionMessage(message);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new QuestionMessage(message)
+            {
+                Owner = Application.Current.MainWindow
+            };
             bool? result = dialog.ShowDialog();
 
             if (result == true)
@@ -32,7 +34,7 @@ namespace HangedMan_Client.Views
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 mainWindow.goToLoginView();
             }
-            
+
         }
 
         private void ShowInformationPlayer()

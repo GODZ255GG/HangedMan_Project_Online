@@ -55,20 +55,20 @@
             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Border Background="#DBEAFE" CornerRadius="20" Width="Auto" Margin="0,0,15,0">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Categoría:" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#FF1E40AF"/>
+                        <Label Content="{x:Static p:Resources.lblCategory}" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#FF1E40AF"/>
                         <Label x:Name="lblCategory" Content="Animales" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Margin="0,0,10,0" Foreground="#FF1E40AF"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#F3E8FF" CornerRadius="20" Width="Auto">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Pista:" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#6B21A8"/>
+                        <Label Content="{x:Static p:Resources.lblClue}" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#6B21A8"/>
                         <Label x:Name="lblClue" Content="Vive en el océano" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Margin="0,0,10,0" Foreground="#6B21A8"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Intentos restantes:" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#6B7280"/>
+                <Label Content="{x:Static p:Resources.lblRemainigAttempts}" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#6B7280"/>
                 <Label x:Name="lblCounter" Content="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#EF4444" FontSize="16" FontWeight="Bold"/>
             </StackPanel>
 
@@ -81,7 +81,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Button x:Name="btnLeaveMatch" Content="Abandonar Partida" Margin="0,50,0,85" Height="48" Width="400" Padding="10,0,10,0" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Style="{StaticResource RoundedButton}" Click="BtnLeaveMatch_Click"/>
+                <Button x:Name="btnLeaveMatch" Content="{x:Static p:Resources.LeaveMatchButton}" Margin="0,50,0,85" Height="48" Width="400" Padding="10,0,10,0" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Style="{StaticResource RoundedButton}" Click="BtnLeaveMatch_Click"/>
                 <Border Grid.Row="6" Background="#1E40AF" CornerRadius="0,0,20,20" Width="1200" Height="21"/>
             </StackPanel>
         </Grid>

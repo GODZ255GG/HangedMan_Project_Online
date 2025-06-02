@@ -264,9 +264,8 @@
 
         <Border CornerRadius="20" Background="Gray" Opacity="0.7"/>
 
-        <Border Width="500" 
-                Height="600"
-                Background="#E5E7EB" 
+        <Border Background="#E5E7EB"
+                Padding="10"
                 CornerRadius="10" 
                 BorderThickness="1"
                 VerticalAlignment="Center"
@@ -290,11 +289,11 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0">
-                    <Image Source="/Resources/iconController.png" Width="70" Height="70" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                    <Image Source="/Resources/iconController.png" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </StackPanel>
 
                 <!-- Encabezado -->
-                <StackPanel Grid.Row="1" Margin="0,0,0,2">
+                <StackPanel Grid.Row="1">
                     <Label Content="{x:Static p:Resources.labelTitle}"
                            Foreground="Black" 
                            FontSize="30" 
@@ -307,7 +306,7 @@
                 </StackPanel>
 
                 <!-- Formulario de inicio de sesión -->
-                <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                <StackPanel Grid.Row="2" VerticalAlignment="Center" Height="177">
                     <!-- Correo electrónico -->
                     <Label Content="{x:Static p:Resources.EmailLoggin}" 
                            Foreground="Black" 
@@ -324,38 +323,40 @@
                                  Style="{StaticResource RoundedPasswordBoxStyle}"
                                  Margin="0,0,0,30" BorderBrush="#FFD1D5DB"/>
                 </StackPanel>
-                
-                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                    <Button x:Name="btnChangeEnglish" Background="#FF007ACC"                            
-                            Width="150" Height="40" Margin="0,0,40,0" 
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click" BorderBrush="#FFD1D5DB">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
-                                <Label Content="{x:Static p:Resources.EnglishButton}" Foreground="White" FontWeight="Bold"/>
-                            </StackPanel>
-                    </Button>
-                    <Button x:Name="btnChangeSpanish" 
-                            Width="150" Height="40" Background="#FF007ACC"
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click" BorderBrush="#FFD1D5DB" Cursor="Hand">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
-                                <Label Content="{x:Static p:Resources.SpanishButton}" Foreground="White" FontWeight="Bold"/>
-                            </StackPanel>
-                    </Button>
+
+                <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,10">
+                    <Label Content="{x:Static p:Resources.SelectLanguage}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="btnChangeEnglish" Background="#FF007ACC"                            
+                                Width="104.22" Height="41.6" Margin="0,0,20,0" 
+                                Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click" BorderBrush="#FFD1D5DB">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                                    <Label Content="{x:Static p:Resources.EnglishButton}" Foreground="White" FontWeight="Bold"/>
+                                </StackPanel>
+                        </Button>
+                        <Button x:Name="btnChangeSpanish" 
+                                Width="104.22" Height="41.6" Background="#FF007ACC"
+                                Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click" BorderBrush="#FFD1D5DB" Cursor="Hand">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                                    <Label Content="{x:Static p:Resources.SpanishButton}" Foreground="White" FontWeight="Bold"/>
+                                </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
 
-                <StackPanel Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Center" >
+                <StackPanel Grid.Row="4" Orientation="Vertical" HorizontalAlignment="Center" Width="398" >
                     <Button x:Name="btnLogin" 
-                            Width="420" Height="45" Style="{StaticResource CreateButtonStyle}"
+                            Height="45" Style="{StaticResource CreateButtonStyle}"
                             Background="#FF4F46E5"
                             Margin="0,0,0,10" Click="BtnLogin_Click" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnExit" 
-                                    Width="420" Height="45" Style="{StaticResource ExitButtonStyle}"
-                                    Background="#FFE54646"
-                                    Margin="0,0,0,10" BorderBrush="{x:Null}" Click="BtnExit_Click"/>               
+                            Height="45" Style="{StaticResource ExitButtonStyle}"
+                            Background="#FFE54646" BorderBrush="{x:Null}" Click="BtnExit_Click"/>
                     <Button x:Name="btnCreate"
-                            Width="420" Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
-                            FontSize="16"  Background="{x:Null}" BorderBrush="{x:Null}" Click="btnCreate_Click"/>
+                            Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
+                            FontSize="16"  Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnCreate_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

@@ -61,11 +61,29 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Aceptar.
+        /// </summary>
+        public static string AceptButton {
+            get {
+                return ResourceManager.GetString("AceptButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Volver a Inicio de sesión.
         /// </summary>
         public static string BackButton {
             get {
                 return ResourceManager.GetString("BackButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Regresar.
+        /// </summary>
+        public static string BackLobby {
+            get {
+                return ResourceManager.GetString("BackLobby", resourceCulture);
             }
         }
         
@@ -84,6 +102,15 @@ namespace HangedMan_Client.Properties {
         public static string buttonCreate {
             get {
                 return ResourceManager.GetString("buttonCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear Juego.
+        /// </summary>
+        public static string ButtonCreateGame {
+            get {
+                return ResourceManager.GetString("ButtonCreateGame", resourceCulture);
             }
         }
         
@@ -160,7 +187,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Se ha modificato tu perfil.
+        ///   Busca una cadena traducida similar a Se ha modificato tu cuenta.
         /// </summary>
         public static string ConfirmationModify {
             get {
@@ -174,6 +201,15 @@ namespace HangedMan_Client.Properties {
         public static string ConfirmationUserRegister {
             get {
                 return ResourceManager.GetString("ConfirmationUserRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡FELICIDADES!.
+        /// </summary>
+        public static string CongratulationsWinDialog {
+            get {
+                return ResourceManager.GetString("CongratulationsWinDialog", resourceCulture);
             }
         }
         
@@ -286,6 +322,33 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No tienes partidas abandonadas..
+        /// </summary>
+        public static string EmptyAbandoned {
+            get {
+                return ResourceManager.GetString("EmptyAbandoned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No tienes partidas perdidas..
+        /// </summary>
+        public static string EmptyLost {
+            get {
+                return ResourceManager.GetString("EmptyLost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No tienes partidas ganadas..
+        /// </summary>
+        public static string EmptyWins {
+            get {
+                return ResourceManager.GetString("EmptyWins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ingles.
         /// </summary>
         public static string EnglishButton {
@@ -340,7 +403,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error al modificar el perfil.
+        ///   Busca una cadena traducida similar a Error al modificar la cuenta.
         /// </summary>
         public static string ErrorModify {
             get {
@@ -354,6 +417,24 @@ namespace HangedMan_Client.Properties {
         public static string ErrorTitle {
             get {
                 return ResourceManager.GetString("ErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al actualizar la letra en la base de datos.
+        /// </summary>
+        public static string ErrorUpdatingLetter {
+            get {
+                return ResourceManager.GetString("ErrorUpdatingLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error al actualizar los intentos restantes.
+        /// </summary>
+        public static string ErrorUpdatingRemainigAttempts {
+            get {
+                return ResourceManager.GetString("ErrorUpdatingRemainigAttempts", resourceCulture);
             }
         }
         
@@ -399,6 +480,15 @@ namespace HangedMan_Client.Properties {
         public static string GameLanguageLabel {
             get {
                 return ResourceManager.GetString("GameLanguageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El juego comenzara automáticamente.
+        /// </summary>
+        public static string GameStartAutomatically {
+            get {
+                return ResourceManager.GetString("GameStartAutomatically", resourceCulture);
             }
         }
         
@@ -502,11 +592,29 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Juegos Disponibles.
+        /// </summary>
+        public static string LabelAvailableGames {
+            get {
+                return ResourceManager.GetString("LabelAvailableGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Por favor selecciona la fecha de tu nacimiento.
         /// </summary>
         public static string LabelBirthDateEmpty {
             get {
                 return ResourceManager.GetString("LabelBirthDateEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Creado por: .
+        /// </summary>
+        public static string LabelCreatedBy {
+            get {
+                return ResourceManager.GetString("LabelCreatedBy", resourceCulture);
             }
         }
         
@@ -547,6 +655,51 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Idioma de la partida: .
+        /// </summary>
+        public static string LabelGameLanguage {
+            get {
+                return ResourceManager.GetString("LabelGameLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idiomas.
+        /// </summary>
+        public static string LabelLanguage {
+            get {
+                return ResourceManager.GetString("LabelLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Perdiste!.
+        /// </summary>
+        public static string LabelLost {
+            get {
+                return ResourceManager.GetString("LabelLost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas perdidas.
+        /// </summary>
+        public static string LabelLostMach {
+            get {
+                return ResourceManager.GetString("LabelLostMach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partida abandonada.
+        /// </summary>
+        public static string LabelMatchAbandoned {
+            get {
+                return ResourceManager.GetString("LabelMatchAbandoned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Por favor ingresa tu nombre de usuario.
         /// </summary>
         public static string LabelNickEmpty {
@@ -574,7 +727,16 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Puntos obtenidos: .
+        ///   Busca una cadena traducida similar a puntos.
+        /// </summary>
+        public static string labelPoints {
+            get {
+                return ResourceManager.GetString("labelPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntuación global.
         /// </summary>
         public static string LabelPointsEarned {
             get {
@@ -615,6 +777,69 @@ namespace HangedMan_Client.Properties {
         public static string labelTitle {
             get {
                 return ResourceManager.GetString("labelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas ganadas.
+        /// </summary>
+        public static string LabelWonMach {
+            get {
+                return ResourceManager.GetString("LabelWonMach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categoría: .
+        /// </summary>
+        public static string lblCategory {
+            get {
+                return ResourceManager.GetString("lblCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pista: .
+        /// </summary>
+        public static string lblClue {
+            get {
+                return ResourceManager.GetString("lblClue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consonantes.
+        /// </summary>
+        public static string lblConsonants {
+            get {
+                return ResourceManager.GetString("lblConsonants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Intentos restantes: .
+        /// </summary>
+        public static string lblRemainigAttempts {
+            get {
+                return ResourceManager.GetString("lblRemainigAttempts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar Información de Cuenta.
+        /// </summary>
+        public static string lblSubtitle {
+            get {
+                return ResourceManager.GetString("lblSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Vocales.
+        /// </summary>
+        public static string lblVocals {
+            get {
+                return ResourceManager.GetString("lblVocals", resourceCulture);
             }
         }
         
@@ -727,7 +952,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Historial.
+        ///   Busca una cadena traducida similar a Ver Historial de partidas.
         /// </summary>
         public static string MatchHistoryButton {
             get {
@@ -799,7 +1024,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Modificar.
+        ///   Busca una cadena traducida similar a Editar Información.
         /// </summary>
         public static string ModifyProfileButton {
             get {
@@ -925,7 +1150,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tu perfil del jugador.
+        ///   Busca una cadena traducida similar a Información de la cuenta.
         /// </summary>
         public static string ProfileViewLabel {
             get {
@@ -952,11 +1177,29 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Selecciona la palabra .
+        ///   Busca una cadena traducida similar a Seleccione su idioma preferido.
+        /// </summary>
+        public static string SelectLanguage {
+            get {
+                return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Palabra.
         /// </summary>
         public static string SelectWordCreateMatch {
             get {
                 return ResourceManager.GetString("SelectWordCreateMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configuración.
+        /// </summary>
+        public static string SettingProfileDialog {
+            get {
+                return ResourceManager.GetString("SettingProfileDialog", resourceCulture);
             }
         }
         
@@ -1006,6 +1249,78 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Palabra adivinada: .
+        /// </summary>
+        public static string TextGuessedWord {
+            get {
+                return ResourceManager.GetString("TextGuessedWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Oponente: .
+        /// </summary>
+        public static string TextOponente {
+            get {
+                return ResourceManager.GetString("TextOponente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡LO SENTIMOS!.
+        /// </summary>
+        public static string TextWereSorry {
+            get {
+                return ResourceManager.GetString("TextWereSorry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas abandonadas.
+        /// </summary>
+        public static string TitleAbandonedGames {
+            get {
+                return ResourceManager.GetString("TitleAbandonedGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Crear Nuevo Juego.
+        /// </summary>
+        public static string TitleCreateNewMatch {
+            get {
+                return ResourceManager.GetString("TitleCreateNewMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modificación de la información de la cuenta.
+        /// </summary>
+        public static string TitleEditAccount {
+            get {
+                return ResourceManager.GetString("TitleEditAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas perdidas.
+        /// </summary>
+        public static string TitleLostGames {
+            get {
+                return ResourceManager.GetString("TitleLostGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas ganadas.
+        /// </summary>
+        public static string TitleYourVictories {
+            get {
+                return ResourceManager.GetString("TitleYourVictories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Juego ahorcado.
         /// </summary>
         public static string Tittle {
@@ -1033,11 +1348,11 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ver Perfil.
+        ///   Busca una cadena traducida similar a Ver Cuenta.
         /// </summary>
-        public static string ViewProfileButton {
+        public static string ViewAccountButton {
             get {
-                return ResourceManager.GetString("ViewProfileButton", resourceCulture);
+                return ResourceManager.GetString("ViewAccountButton", resourceCulture);
             }
         }
         
@@ -1051,7 +1366,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Esperando jugador.
+        ///   Busca una cadena traducida similar a Esperando jugador...
         /// </summary>
         public static string WaitingForPlayer {
             get {
@@ -1101,6 +1416,15 @@ namespace HangedMan_Client.Properties {
         public static string WordNotAvailable {
             get {
                 return ResourceManager.GetString("WordNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Lo lograste!.
+        /// </summary>
+        public static string YouDidItWinDialog {
+            get {
+                return ResourceManager.GetString("YouDidItWinDialog", resourceCulture);
             }
         }
     }

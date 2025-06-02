@@ -148,7 +148,7 @@
     <value>Confirmacion</value>
   </data>
   <data name="ConfirmationModify" xml:space="preserve">
-    <value>Se ha modificato tu perfil</value>
+    <value>Se ha modificato tu cuenta</value>
   </data>
   <data name="ConfirmationUserRegister" xml:space="preserve">
     <value>Se ha registrado en el juego!</value>
@@ -208,7 +208,7 @@
     <value>Contrasena y/o email incorrectos!</value>
   </data>
   <data name="ErrorModify" xml:space="preserve">
-    <value>Error al modificar el perfil</value>
+    <value>Error al modificar la cuenta</value>
   </data>
   <data name="ErrorTitle" xml:space="preserve">
     <value>Error Titulo</value>
@@ -283,7 +283,7 @@
     <value>Por favor vuelve a ingresa tu contraseña</value>
   </data>
   <data name="LabelPointsEarned" xml:space="preserve">
-    <value>Puntos obtenidos: </value>
+    <value>Puntuación global</value>
   </data>
   <data name="LabelSecondSurnameEmpty" xml:space="preserve">
     <value>Por favor ingresa tu apellido materno</value>
@@ -328,7 +328,7 @@
     <value>Partida creada!</value>
   </data>
   <data name="MatchHistoryButton" xml:space="preserve">
-    <value>Historial</value>
+    <value>Ver Historial de partidas</value>
   </data>
   <data name="MatchHistoryLabel" xml:space="preserve">
     <value>Historial de Partidas</value>
@@ -352,7 +352,7 @@
     <value>Ganada</value>
   </data>
   <data name="ModifyProfileButton" xml:space="preserve">
-    <value>Modificar</value>
+    <value>Editar Información</value>
   </data>
   <data name="NamesNotValid" xml:space="preserve">
     <value>Por favor comprueba tu nombre completo y no uses acentos</value>
@@ -394,7 +394,7 @@
     <value>Otro jugador se ha unido!</value>
   </data>
   <data name="ProfileViewLabel" xml:space="preserve">
-    <value>Tu perfil del jugador</value>
+    <value>Información de la cuenta</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
     <value>¿No tiene una cuenta? Regístrese aquí</value>
@@ -403,7 +403,7 @@
     <value>Apellido materno</value>
   </data>
   <data name="SelectWordCreateMatch" xml:space="preserve">
-    <value>Selecciona la palabra </value>
+    <value>Palabra</value>
   </data>
   <data name="SpanishButton" xml:space="preserve">
     <value>Espanol</value>
@@ -429,14 +429,14 @@
   <data name="UserRegisterLabel" xml:space="preserve">
     <value>No tienes una cuenta? Crea una!</value>
   </data>
-  <data name="ViewProfileButton" xml:space="preserve">
-    <value>Ver Perfil</value>
+  <data name="ViewAccountButton" xml:space="preserve">
+    <value>Ver Cuenta</value>
   </data>
   <data name="WaitGuestMessage" xml:space="preserve">
     <value>Esperando a otro jugador</value>
   </data>
   <data name="WaitingForPlayer" xml:space="preserve">
-    <value>Esperando jugador</value>
+    <value>Esperando jugador..</value>
   </data>
   <data name="WarningCreateMatch" xml:space="preserve">
     <value>Por favor selecciona la categoria y la palabra!</value>
@@ -464,5 +464,113 @@
   </data>
   <data name="NoMatchesAvailable" xml:space="preserve">
     <value>No hay partidas disponibles actualmente. ¡Sé el primero en crear una!</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Seleccione su idioma preferido</value>
+  </data>
+  <data name="AceptButton" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="YouDidItWinDialog" xml:space="preserve">
+    <value>¡Lo lograste!</value>
+  </data>
+  <data name="CongratulationsWinDialog" xml:space="preserve">
+    <value>¡FELICIDADES!</value>
+  </data>
+  <data name="GameStartAutomatically" xml:space="preserve">
+    <value>El juego comenzara automáticamente</value>
+  </data>
+  <data name="BackLobby" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="labelPoints" xml:space="preserve">
+    <value>puntos</value>
+  </data>
+  <data name="SettingProfileDialog" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="LabelWonMach" xml:space="preserve">
+    <value>Partidas ganadas</value>
+  </data>
+  <data name="LabelLostMach" xml:space="preserve">
+    <value>Partidas perdidas</value>
+  </data>
+  <data name="LabelMatchAbandoned" xml:space="preserve">
+    <value>Partida abandonada</value>
+  </data>
+  <data name="TitleYourVictories" xml:space="preserve">
+    <value>Partidas ganadas</value>
+  </data>
+  <data name="TitleLostGames" xml:space="preserve">
+    <value>Partidas perdidas</value>
+  </data>
+  <data name="TitleAbandonedGames" xml:space="preserve">
+    <value>Partidas abandonadas</value>
+  </data>
+  <data name="EmptyWins" xml:space="preserve">
+    <value>No tienes partidas ganadas.</value>
+  </data>
+  <data name="EmptyLost" xml:space="preserve">
+    <value>No tienes partidas perdidas.</value>
+  </data>
+  <data name="EmptyAbandoned" xml:space="preserve">
+    <value>No tienes partidas abandonadas.</value>
+  </data>
+  <data name="TextOponente" xml:space="preserve">
+    <value>Oponente: </value>
+  </data>
+  <data name="TextGuessedWord" xml:space="preserve">
+    <value>Palabra adivinada: </value>
+  </data>
+  <data name="TextWereSorry" xml:space="preserve">
+    <value>¡LO SENTIMOS!</value>
+  </data>
+  <data name="LabelLost" xml:space="preserve">
+    <value>¡Perdiste!</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="TitleCreateNewMatch" xml:space="preserve">
+    <value>Crear Nuevo Juego</value>
+  </data>
+  <data name="LabelAvailableGames" xml:space="preserve">
+    <value>Juegos Disponibles</value>
+  </data>
+  <data name="ButtonCreateGame" xml:space="preserve">
+    <value>Crear Juego</value>
+  </data>
+  <data name="TitleEditAccount" xml:space="preserve">
+    <value>Modificación de la información de la cuenta</value>
+  </data>
+  <data name="lblSubtitle" xml:space="preserve">
+    <value>Editar Información de Cuenta</value>
+  </data>
+  <data name="lblCategory" xml:space="preserve">
+    <value>Categoría: </value>
+  </data>
+  <data name="lblClue" xml:space="preserve">
+    <value>Pista: </value>
+  </data>
+  <data name="lblRemainigAttempts" xml:space="preserve">
+    <value>Intentos restantes: </value>
+  </data>
+  <data name="lblVocals" xml:space="preserve">
+    <value>Vocales</value>
+  </data>
+  <data name="lblConsonants" xml:space="preserve">
+    <value>Consonantes</value>
+  </data>
+  <data name="ErrorUpdatingLetter" xml:space="preserve">
+    <value>Error al actualizar la letra en la base de datos</value>
+  </data>
+  <data name="ErrorUpdatingRemainigAttempts" xml:space="preserve">
+    <value>Error al actualizar los intentos restantes</value>
+  </data>
+  <data name="LabelCreatedBy" xml:space="preserve">
+    <value>Creado por: </value>
+  </data>
+  <data name="LabelGameLanguage" xml:space="preserve">
+    <value>Idioma de la partida: </value>
   </data>
 </root>

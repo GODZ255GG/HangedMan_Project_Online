@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using System.Xml.Linq;
 
 namespace HangedMan_Client.Views
 {
@@ -20,8 +19,8 @@ namespace HangedMan_Client.Views
         List<Match> matchesAvaliables;
         List<Category> categories;
         List<Word> words;
-        WordServicesClient wordServicesClient = new WordServicesClient();
-        GameServicesClient gameServicesClient = new GameServicesClient();
+        private readonly WordServicesClient wordServicesClient = new WordServicesClient();
+        private readonly GameServicesClient gameServicesClient = new GameServicesClient();
 
         public LobbyView()
         {
@@ -36,8 +35,10 @@ namespace HangedMan_Client.Views
 
         private void SetupTimer()
         {
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Start();
         }
@@ -104,7 +105,7 @@ namespace HangedMan_Client.Views
             }
             catch (Exception ex)
             {
-                ShowMessage($"Error al cargar las palabras: {ex.Message}", 3);
+                ShowMessage(ex.Message, 3);
             }
         }
 
@@ -131,9 +132,9 @@ namespace HangedMan_Client.Views
         {
             try
             {
-                if (allSelectioned())
+                if (AllSelectioned())
                 {
-                    Match newMatch = createNewMatch();
+                    Match newMatch = CreateNewMatch();
                     Match confirmation = await gameServicesClient.CreateMatchAsync(newMatch);
                     if (confirmation != null)
                     {
@@ -154,7 +155,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private bool allSelectioned()
+        private bool AllSelectioned()
         {
             if (cbxWord.SelectedItem != null && cbxCategory != null)
             {
@@ -163,7 +164,7 @@ namespace HangedMan_Client.Views
             return false;
         }
 
-        private Match createNewMatch()
+        private Match CreateNewMatch()
         {
             try
             {
@@ -193,15 +194,9 @@ namespace HangedMan_Client.Views
 
         private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener el botón que disparó el evento
-            Button joinButton = sender as Button;
-
-            if (joinButton != null)
+            if (sender is Button joinButton)
             {
-                // Obtener la partida asociada a esta tarjeta
-                Match selectedMatch = joinButton.DataContext as Match;
-
-                if (selectedMatch != null)
+                if (joinButton.DataContext is Match selectedMatch)
                 {
                     try
                     {
@@ -223,8 +218,10 @@ namespace HangedMan_Client.Views
 
         private void BtnProfile_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new ProfileDialog();
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new ProfileDialog
+            {
+                Owner = Application.Current.MainWindow
+            };
             dialog.ShowDialog();
         }
 
@@ -246,8 +243,10 @@ namespace HangedMan_Client.Views
 
         private void ShowMessage(string message, int type)
         {
-            var dialog = new MessageBoxInformation(message, type);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new MessageBoxInformation(message, type)
+            {
+                Owner = Application.Current.MainWindow
+            };
             dialog.ShowDialog();
         }
     }

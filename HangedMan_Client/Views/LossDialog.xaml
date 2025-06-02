@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:HangedMan_Client.Properties"
         xmlns:local="clr-namespace:HangedMan_Client.Views"
         mc:Ignorable="d" Width="1200" Height="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
@@ -43,18 +44,18 @@
                     </Border.Background>
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Image Source="/Resources/iconSad-face.png" Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock Text="¡LO SENTIMOS!" Foreground="White" FontWeight="Bold" FontSize="22" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                        <TextBlock Text="{x:Static p:Resources.TextWereSorry}" Foreground="White" FontWeight="Bold" FontSize="22" HorizontalAlignment="Center" Margin="0,8,0,0"/>
                     </StackPanel>
                 </Border>
                 <!-- Contenido principal -->
                 <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
                     <Image Source="/Resources/iconLoss.png" Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Label Content="¡Perdiste!" FontWeight="Bold" FontSize="18" Foreground="#222" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+                    <Label Content="{x:Static p:Resources.LabelLost}" FontWeight="Bold" FontSize="18" Foreground="#222" HorizontalAlignment="Center" Margin="0,16,0,0"/>
                     <Label x:Name="lblMessage" Content="Has adivinado correctamente la palabra" FontSize="13" Foreground="#666" HorizontalAlignment="Center" Margin="0,6,0,0"/>
                 </StackPanel>
                 <!-- Botón aceptar -->
                 <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button x:Name="btnAcept" Content="Aceptar" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
+                    <Button x:Name="btnAcept" Content="{x:Static p:Resources.AceptButton}" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

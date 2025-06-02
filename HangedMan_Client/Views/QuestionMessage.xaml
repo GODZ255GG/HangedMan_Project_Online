@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:HangedMan_Client.Properties"
         xmlns:local="clr-namespace:HangedMan_Client.Views"
         mc:Ignorable="d"
         Title="QuestionMessage" 
@@ -54,8 +55,8 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button x:Name="btnCancel" Content="Cancelar" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Margin="0,0,10,0" Click="BtnCancel_Click"/>
-                        <Button x:Name="btnAcept" Content="Aceptar" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
+                        <Button x:Name="btnCancel" Content="{x:Static p:Resources.CancelCreateMatchButton}" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Margin="0,0,10,0" Click="BtnCancel_Click"/>
+                        <Button x:Name="btnAcept" Content="{x:Static p:Resources.AceptButton}" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>

@@ -1,6 +1,5 @@
 ﻿using HangedMan_Client.HangedManService;
 using System;
-using System.ServiceModel.Channels;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,17 +11,17 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class EditProfileView : Page
     {
-        PlayerServicesClient playerServices = new PlayerServicesClient();
-        Player player;
+        private readonly PlayerServicesClient playerServices = new PlayerServicesClient();
+        private readonly Player player;
         public EditProfileView(Player player)
         {
             InitializeComponent();
             this.player = player;
-            disableErrorLabels();
-            showInformationPlayer();
+            DisableErrorLabels();
+            ShowInformationPlayer();
         }
 
-        private void showInformationPlayer()
+        private void ShowInformationPlayer()
         {
             txtFullName.Text = player.FullName;
             txtEmail.Text = player.Email;
@@ -35,8 +34,10 @@ namespace HangedMan_Client.Views
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             string messageConfirm = Properties.Resources.CancelModifyConfirmation;
-            var dialog = new QuestionMessage(messageConfirm);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new QuestionMessage(messageConfirm)
+            {
+                Owner = Application.Current.MainWindow
+            };
             bool? result = dialog.ShowDialog();
 
             if (result == true)
@@ -48,13 +49,13 @@ namespace HangedMan_Client.Views
 
         private async void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (!checkData())
+            if (!CheckData())
             {
-                if (checkPasswords())
+                if (CheckPasswords())
                 {
-                    if (checkPasswordsMatch())
+                    if (CheckPasswordsMatch())
                     {
-                        if (allValidate())
+                        if (AllValidate())
                         {
                             try
                             {
@@ -70,7 +71,7 @@ namespace HangedMan_Client.Views
                                 {
                                     string message = Properties.Resources.ConfirmationModify;
                                     ShowMessage(message, 1);
-                                    NavigationService.Navigate(new ProfileView());                                    
+                                    NavigationService.Navigate(new ProfileView());
                                 }
                                 else
                                 {
@@ -93,7 +94,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private bool checkData()
+        private bool CheckData()
         {
             bool hasEmptyField = false;
 
@@ -170,7 +171,7 @@ namespace HangedMan_Client.Views
             return hasEmptyField;
         }
 
-        private void disableErrorLabels()
+        private void DisableErrorLabels()
         {
             labelBirthDateEmpty.Visibility = Visibility.Hidden;
             labelEmailEmpty.Visibility = Visibility.Hidden;
@@ -181,18 +182,18 @@ namespace HangedMan_Client.Views
             labelTelephoneEmpty.Visibility = Visibility.Hidden;
         }
 
-        private bool checkPasswords()
+        private bool CheckPasswords()
         {
             return !string.IsNullOrEmpty(txtPassword.Password) && !string.IsNullOrEmpty(txtPasswordConfirmation.Password);
         }
 
 
-        private bool checkPasswordsMatch()
+        private bool CheckPasswordsMatch()
         {
             return txtPassword.Password == txtPasswordConfirmation.Password;
         }
 
-        private bool allValidate()
+        private bool AllValidate()
         {
             string email = txtEmail.Text.Trim();
             string nickName = txtNickname.Text.Trim();
@@ -200,15 +201,15 @@ namespace HangedMan_Client.Views
             string password = txtPassword.Password.Trim();
             string phoneNumber = txtTelephone.Text.Trim();
 
-            if (validateNames(name) && validateNick(nickName)
-                && validateEmail(email) && validatePassword(password) && validateTelephone(phoneNumber))
+            if (ValidateNames(name) && ValidateNick(nickName)
+                && ValidateEmail(email) && ValidatePassword(password) && ValidateTelephone(phoneNumber))
             {
                 return true;
             }
             return false;
         }
 
-        private bool validateNames(string name)
+        private bool ValidateNames(string name)
         {
 
             if (Regex.IsMatch(name, @"^[a-zA-Z\s]+$"))
@@ -223,7 +224,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private bool validateTelephone(string phone)
+        private bool ValidateTelephone(string phone)
         {
             string message = Properties.Resources.PhoneNotValid;
             if (phone.Length != 10)
@@ -244,7 +245,7 @@ namespace HangedMan_Client.Views
             return true;
         }
 
-        private bool validateEmail(string email)
+        private bool ValidateEmail(string email)
         {
             string message = Properties.Resources.EmailNotValid;
             if (Regex.IsMatch(email, @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@"
@@ -260,7 +261,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private bool validateNick(string nickName)
+        private bool ValidateNick(string nickName)
         {
             string message = Properties.Resources.NicknameNotValid;
             if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$"))
@@ -274,7 +275,7 @@ namespace HangedMan_Client.Views
             }
         }
 
-        public bool validatePassword(string password)
+        public bool ValidatePassword(string password)
         {
             string message = Properties.Resources.PasswordNotValid;
             if (Regex.IsMatch(password, @"^[a-zA-Z0-9]{8,15}$"))
@@ -290,8 +291,10 @@ namespace HangedMan_Client.Views
 
         private void ShowMessage(string message, int type)
         {
-            var dialog = new MessageBoxInformation(message, type);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new MessageBoxInformation(message, type)
+            {
+                Owner = Application.Current.MainWindow
+            };
             dialog.ShowDialog();
         }
     }

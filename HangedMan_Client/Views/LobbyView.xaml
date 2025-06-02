@@ -65,7 +65,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Image Source="/Resources/iconAdd.png" Width="20" Height="20" Margin="0,0,5,0"/>
-                            <Label Content="Create Game" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                            <Label Content="{x:Static p:Resources.ButtonCreateGame}" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </StackPanel>
                     </DataTemplate>
                 </Setter.Value>
@@ -142,7 +142,7 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
                 <Image Source="/Resources/iconControl.png" Width="40" Height="28" VerticalAlignment="Center" Margin="160,0,0,0"/>
-                <Label Content=" Available Games" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
+                <Label Content="{x:Static p:Resources.LabelAvailableGames}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Vertical">
@@ -154,7 +154,6 @@
                         HorizontalAlignment="Center">
 
                     <StackPanel Orientation="Vertical" Margin="20,20,20,20">
-                        <!-- Mostrar mensaje si no hay partidas -->
                         <TextBlock x:Name="NoMatchesText" 
                                    Text="{x:Static p:Resources.NoMatchesAvailable}"
                                    Visibility="Collapsed"
@@ -167,7 +166,6 @@
                                    TextWrapping="Wrap"
                                    TextAlignment="Center"
                                    Margin="0,20"/>
-                        <!-- Mostrar partidas solo si hay disponibles -->
                         <ScrollViewer x:Name="MatchesScrollViewer"
                                       VerticalScrollBarVisibility="Auto"
                                       HorizontalScrollBarVisibility="Disabled"
@@ -184,7 +182,6 @@
 
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <!-- Tarjeta de partida -->
                                         <Border Width="266" 
                                                 Height="160" 
                                                 Margin="15" 
@@ -202,12 +199,11 @@
                                                 </Grid.RowDefinitions>
 
                                                 <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" Margin="-5,0,0,0">
-                                                    <Label Content="Creado por:" 
+                                                    <Label Content="{x:Static p:Resources.LabelCreatedBy}" 
                                                            FontFamily="Monocraft"
                                                            FontSize="16"
                                                            FontWeight="Bold"
                                                            Foreground="#1E40AF"/>
-                                                    <!-- NickName del creador -->
                                                     <Label Content="{Binding NickNameChallenger, StringFormat='Creador: {0}'}" 
                                                            FontFamily="Monocraft"
                                                            FontSize="16"
@@ -217,13 +213,10 @@
                                                 </StackPanel>
 
                                                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" Margin="-5,0,0,0">
-                                                    <!-- Idioma de la partida -->
-                                                    <Label Content="Idioma de la partida:"
+                                                    <Label Content="{x:Static p:Resources.LabelGameLanguage}"
                                                            FontFamily="Monocraft"
                                                            FontSize="14"
                                                            Foreground="#6B7280"/>
-                                                    
-                                                    <!-- Idioma de la partida -->
                                                     <Label Content="{Binding MatchLanguage, Converter={StaticResource LanguageConverter}}" 
                                                            FontFamily="Monocraft"
                                                            FontSize="14"
@@ -231,15 +224,13 @@
                                                            Margin="-5,0,0,5"/>
                                                 </StackPanel>
 
-                                                <!-- Fecha de la partida -->
-                                                <TextBlock Text="{Binding DateMatch, StringFormat='Fecha: {0}'}" 
+                                                <TextBlock Text="{Binding DateMatch, StringFormat= 'Fecha: {0}'}" 
                                                            Grid.Row="2"
                                                            FontFamily="Monocraft"
                                                            FontSize="14"
                                                            Foreground="#4d9eed"
                                                            Margin="0,0,0,10"/>
 
-                                                <!-- Botón Unirse -->
                                                 <Button x:Name="btnJoin" Content="{x:Static p:Resources.DataGridColumnJoin}" 
                                                         Grid.Row="3"
                                                         Command="{Binding DataContext.JoinCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
@@ -301,16 +292,16 @@
                     <StackPanel Orientation="Vertical" Margin="20,20,20,20">
                         <StackPanel Orientation="Horizontal" >
                             <Image Source="/Resources/iconPlus.png" Width="20" Height="20"/>
-                            <Label Content="Create New Game" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
+                            <Label Content="{x:Static p:Resources.TitleCreateNewMatch}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
                         </StackPanel>
-                        <Label Content="Language"/>
+                        <Label Content="{x:Static p:Resources.LabelLanguage}"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Spanish" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Margin="0,0,5,0" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="SpanishSelection_Click"/>
-                            <Button Content="English" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="EnglishSelection_Click"/>
+                            <Button Content="{x:Static p:Resources.SpanishButton}" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Margin="0,0,5,0" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="SpanishSelection_Click"/>
+                            <Button Content="{x:Static p:Resources.EnglishButton}" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="EnglishSelection_Click"/>
                         </StackPanel>
-                        <Label Content="Category"/>
+                        <Label Content="{x:Static p:Resources.CategoriesCreateMatch}"/>
                         <ComboBox x:Name="cbxCategory" Height="40" SelectionChanged="CbxCategory_SelectionChanged" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center"/>
-                        <Label Content="Word"/>
+                        <Label Content="{x:Static p:Resources.SelectWordCreateMatch}"/>
                         <ComboBox x:Name="cbxWord" Height="40" Margin="0,0,0,10" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center"/>
                         <Button x:Name="btnCreateGame" Style="{StaticResource CreateButtonStyle}"  Height="40" Background="#16A34A" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="BtnCreateGame_Click"/>
                     </StackPanel>
