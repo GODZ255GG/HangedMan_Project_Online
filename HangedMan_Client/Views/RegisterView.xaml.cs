@@ -24,65 +24,26 @@ namespace HangedMan_Client.Views
         {
             bool hasEmptyField = false;
 
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            bool CheckField(Func<string> getValue, Label errorLabel)
             {
-                labelEmailEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelEmailEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtNickname.Text))
-            {
-                labelNicknameEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelNicknameEmpty.Visibility = Visibility.Hidden;
+                if (string.IsNullOrWhiteSpace(getValue()))
+                {
+                    errorLabel.Visibility = Visibility.Visible;
+                    return true;
+                }
+                else
+                {
+                    errorLabel.Visibility = Visibility.Hidden;
+                    return false;
+                }
             }
 
-            if (string.IsNullOrWhiteSpace(txtFullName.Text))
-            {
-                labelNamesEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelNamesEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtTelephone.Text))
-            {
-                labelTelephoneEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelTelephoneEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Password))
-            {
-                labelPasswordEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelPasswordEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPasswordConfirmation.Password))
-            {
-                labelPasswordConfirmationEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelPasswordConfirmationEmpty.Visibility = Visibility.Hidden;
-            }
+            hasEmptyField |= CheckField(() => txtEmail.Text, labelEmailEmpty);
+            hasEmptyField |= CheckField(() => txtNickname.Text, labelNicknameEmpty);
+            hasEmptyField |= CheckField(() => txtFullName.Text, labelNamesEmpty);
+            hasEmptyField |= CheckField(() => txtTelephone.Text, labelTelephoneEmpty);
+            hasEmptyField |= CheckField(() => txtPassword.Password, labelPasswordEmpty);
+            hasEmptyField |= CheckField(() => txtPasswordConfirmation.Password, labelPasswordConfirmationEmpty);
 
             if (dpBirthDate.SelectedDate == null)
             {
@@ -121,73 +82,69 @@ namespace HangedMan_Client.Views
 
         private async void Register_Click(object sender, RoutedEventArgs e)
         {
-            if (!CheckData())
+            if (CheckData())
+                return;
+
+            if (!CheckPasswords())
+                return;
+
+            if (!CheckPasswordsMatch())
             {
-                if (CheckPasswords())
+                ShowMessage(Properties.Resources.PasswordDoesntMatch,2);
+                return;
+            }
+
+            if (!AllValidate())
+                return;
+
+            if (await playerServicesClient.NicknameAlreadyRegisteredAsync(txtNickname.Text))
+            {
+                ShowMessage(Properties.Resources.NicknameAlreadyRegistered, 2);
+                return;
+            }
+            if (await playerServicesClient.EmailAlreadyRegisteredAsync(txtEmail.Text))
+            {
+                ShowMessage(Properties.Resources.EmailAlreadyRegistered, 2);
+                return;
+            }
+            if (await playerServicesClient.TelephoneAlreadyExistAsync(txtTelephone.Text))
+            {
+                ShowMessage(Properties.Resources.TelephoneAlreadyRegistered, 2);
+                return;
+            }
+
+            try
+            {
+                Player newPlayer = CreateNewPlayer();
+                bool confirmation = await playerServicesClient.RegisterPlayerAsync(newPlayer);
+                if (confirmation)
                 {
-                    if (CheckPasswordsMatch())
-                    {
-                        if (AllValidate())
-                        {
-                            if (await playerServicesClient.NicknameAlreadyRegisteredAsync(txtNickname.Text))
-                            {
-                                string message = Properties.Resources.NicknameAlreadyRegistered;
-                                ShowMessage(message, 2);
-                            }
-                            else if (await playerServicesClient.EmailAlreadyRegisteredAsync(txtEmail.Text))
-                            {
-                                string message = Properties.Resources.EmailAlreadyRegistered;
-                                ShowMessage(message, 2);
-                            }
-                            else if (await playerServicesClient.TelephoneAlreadyExistAsync(txtTelephone.Text))
-                            {
-                                string message = Properties.Resources.TelephoneAlreadyRegistered;
-                                ShowMessage(message, 2);
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    Player newPlayer = CreateNewPlayer();
-                                    bool confirmation = await playerServicesClient.RegisterPlayerAsync(newPlayer);
-                                    if (confirmation)
-                                    {
-                                        string message = Properties.Resources.ConfirmationUserRegister;
-                                        ShowMessage(message, 1);
-                                        mainWindow.goToLoginView();
-                                    }
-                                    else
-                                    {
-                                        string message = Properties.Resources.ErrorUserRegister;
-                                        ShowMessage(message, 3);
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    ShowMessage(ex.Message, 3);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        string message = Properties.Resources.PasswordDoesntMatch;
-                        MessageBox.Show(message);
-                    }
+                    ShowMessage(Properties.Resources.ConfirmationUserRegister, 1);
+                    mainWindow.goToLoginView();
                 }
+                else
+                {
+                    ShowMessage(Properties.Resources.ErrorUserRegister, 3);
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMessage(ex.Message, 3);
             }
         }
 
         private Player CreateNewPlayer()
         {
-            Player newPlayer = new Player();
-            newPlayer.Email = txtEmail.Text.Trim();
-            newPlayer.NickName = txtNickname.Text.Trim();
-            newPlayer.Password = txtPassword.Password.Trim();
-            newPlayer.PhoneNumber = txtTelephone.Text.Trim();
-            newPlayer.FullName = txtFullName.Text.Trim();
-            newPlayer.PointsEarned = 0;
-            newPlayer.BirthDate = dpBirthDate.Text;
+            Player newPlayer = new Player
+            {
+                Email = txtEmail.Text.Trim(),
+                NickName = txtNickname.Text.Trim(),
+                Password = txtPassword.Password.Trim(),
+                PhoneNumber = txtTelephone.Text.Trim(),
+                FullName = txtFullName.Text.Trim(),
+                PointsEarned = 0,
+                BirthDate = dpBirthDate.Text
+            };
 
             return newPlayer;
         }
@@ -217,8 +174,7 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                string message = Properties.Resources.NamesNotValid;
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.NamesNotValid, 2);
                 return false;
             }
         }
@@ -228,7 +184,7 @@ namespace HangedMan_Client.Views
             string message = Properties.Resources.PhoneNotValid;
             if (phone.Length != 10)
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
 
@@ -246,7 +202,6 @@ namespace HangedMan_Client.Views
 
         private bool ValidateEmail(string email)
         {
-            string message = Properties.Resources.EmailNotValid;
             if (Regex.IsMatch(email, @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@"
                 + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$"))
             {
@@ -254,36 +209,33 @@ namespace HangedMan_Client.Views
             }
             else
             {
-
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.EmailNotValid, 2);
                 return false;
             }
         }
 
         private bool ValidateNick(string nickName)
         {
-            string message = Properties.Resources.NicknameNotValid;
             if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$"))
             {
                 return true;
             }
             else
             {
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.NicknameNotValid, 2);
                 return false;
             }
         }
 
         public bool ValidatePassword(string password)
         {
-            string message = Properties.Resources.PasswordNotValid;
             if (Regex.IsMatch(password, @"^[a-zA-Z0-9]{8,15}$"))
             {
                 return true;
             }
             else
             {
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.PasswordNotValid, 2);
                 return false;
             }
         }

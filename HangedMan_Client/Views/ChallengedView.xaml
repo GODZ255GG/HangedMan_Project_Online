@@ -52,7 +52,7 @@
                 </StackPanel>
             </Border>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
                 <Border Background="#DBEAFE" CornerRadius="20" Width="Auto" Margin="0,0,15,0">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{x:Static p:Resources.lblCategory}" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontSize="16" Margin="10,0,5,0" Foreground="#FF1E40AF"/>
@@ -72,16 +72,16 @@
                 <Label x:Name="lblCounter" Content="6" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#EF4444" FontSize="16" FontWeight="Bold"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
                 <Image x:Name="imgControl" Source="pack://application:,,,/Resources/0.jpg" Height="400" Width="400"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,20">
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <WrapPanel x:Name="WordPanel"  VerticalAlignment="Center" Height="auto" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Button x:Name="btnLeaveMatch" Content="{x:Static p:Resources.LeaveMatchButton}" Margin="0,50,0,85" Height="48" Width="400" Padding="10,0,10,0" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Style="{StaticResource RoundedButton}" Click="BtnLeaveMatch_Click"/>
+            <StackPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Button x:Name="btnLeaveMatch" Content="{x:Static p:Resources.LeaveMatchButton}" Margin="0,50,0,53" Height="48" Width="400" Padding="10,0,10,0" FontWeight="Bold" FontSize="16" BorderBrush="{x:Null}" Style="{StaticResource RoundedButton}" Click="BtnLeaveMatch_Click"/>
                 <Border Grid.Row="6" Background="#1E40AF" CornerRadius="0,0,20,20" Width="1200" Height="21"/>
             </StackPanel>
         </Grid>

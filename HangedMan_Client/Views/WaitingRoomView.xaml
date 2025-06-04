@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:p="clr-namespace:HangedMan_Client.Properties"
       xmlns:local="clr-namespace:HangedMan_Client.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      mc:Ignorable="d" Height="800" Width="1200"
       Title="WaitingRoomView">
 
     <Page.Resources>
@@ -28,8 +27,8 @@
     </Page.Resources>
 
     <Grid>
-        <Border Background="White" CornerRadius="20"/>
-        <Border CornerRadius="20" Width="1200" Height="800">
+        <Border Background="White" CornerRadius="20" Height="800" Width="1200"/>
+        <Border CornerRadius="20" Height="800" Width="1200">
             <Border.Background>
                 <SolidColorBrush Color="#FF4C4C4C" Opacity="0.3"/>
             </Border.Background>

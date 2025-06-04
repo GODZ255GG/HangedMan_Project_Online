@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:HangedMan_Client.Properties"
         xmlns:local="clr-namespace:HangedMan_Client.Views"
-        mc:Ignorable="d" Width="1200" Height="800"
+        mc:Ignorable="d" SizeToContent="WidthAndHeight" Height="820" Width="1200"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     
     <Window.Resources>
@@ -26,7 +26,7 @@
         </Style>
     </Window.Resources>
 
-    <Border CornerRadius="20" Width="1200" Height="800">
+    <Border CornerRadius="20" Height="820" Width="1200" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Border CornerRadius="12" Background="White" Height="350" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="2" BorderBrush="Black">
             <Grid>
                 <Grid.RowDefinitions>
