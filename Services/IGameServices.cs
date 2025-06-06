@@ -4,6 +4,13 @@ using System.ServiceModel;
 
 namespace Services
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Interfaz de contrato WCF para la gestión de partidas en el juego "Ahorcado".
+    *              Define las operaciones disponibles para la creación, administración y control de partidas entre los clientes y el servidor.
+    */
     [ServiceContract]
     public interface IGameServices
     {

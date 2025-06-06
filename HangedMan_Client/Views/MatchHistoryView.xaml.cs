@@ -10,7 +10,7 @@ using System.Windows.Navigation;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 27/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que muestra el historial de partidas jugadas por el usuario en el juego "Ahorcado". Permite filtrar por partidas ganadas, perdidas o abandonadas, y navegar entre páginas de resultados.

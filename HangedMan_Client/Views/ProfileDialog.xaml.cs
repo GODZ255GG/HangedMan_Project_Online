@@ -4,7 +4,7 @@ using System.Windows;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 25/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Ventana de diálogo en WPF que muestra información del perfil del usuario, permite cerrar sesión, ver el perfil completo o consultar el historial de partidas en el juego "Ahorcado".

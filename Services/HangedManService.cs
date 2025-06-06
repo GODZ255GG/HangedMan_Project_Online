@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 namespace Services
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Implementación de los servicios WCF para el juego "Ahorcado".
+    *              Expone operaciones para la gestión de jugadores, partidas y palabras, permitiendo la interacción entre clientes y la lógica del juego.
+    */
     public partial class HangedManService : IPlayerServices
     {
         public bool RegisterPlayer(Player newPlayer)

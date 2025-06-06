@@ -4,7 +4,7 @@ using System.Windows;
 namespace HangedMan_Client
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 22/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Ventana principal de la aplicación WPF para el juego "Ahorcado". Gestiona la navegación entre las vistas de registro y login, y permite el cambio de idioma de la interfaz.
