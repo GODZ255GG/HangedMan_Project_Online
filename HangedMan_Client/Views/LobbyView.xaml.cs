@@ -10,7 +10,7 @@ using System.Windows.Threading;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 22/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que gestiona el lobby del juego "Ahorcado". 

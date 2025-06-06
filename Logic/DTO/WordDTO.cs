@@ -6,13 +6,20 @@ using System.Linq;
 
 namespace Logic.DTO
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Clase de acceso a datos (DTO) para la entidad "Palabra" del juego "Ahorcado".
+    *              Proporciona métodos estáticos para consultar palabras, pistas y categorías asociadas en la base de datos utilizando LINQ to SQL.
+    */
     public class WordDTO
     {
         public static List<Word> GetWordsPerCategory(int category)
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var words = (from wor in dataContext.GetTable<Word>()
@@ -31,7 +38,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var word = (from wor in dataContext.GetTable<Word>()
@@ -50,7 +57,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var word = (from wor in dataContext.GetTable<Word>()
@@ -69,7 +76,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var clue = (from clu in dataContext.GetTable<Word>()
@@ -87,7 +94,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var clue = (from clu in dataContext.GetTable<Word>()
@@ -105,7 +112,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
