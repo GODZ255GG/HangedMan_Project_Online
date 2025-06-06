@@ -13,22 +13,26 @@ using System.Windows.Threading;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para ChallengerView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 27/05/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que gestiona la lógica y la interfaz para el jugador que reta en una partida del juego "Ahorcado". 
+    *              Permite mostrar la palabra, pista, categoría, controlar los intentos restantes y manejar la interacción con los servicios de juego y palabras.
+    */
+
     public partial class ChallengedView : Page
     {
-        private readonly DispatcherTimer dispatcherTimer;
-        private readonly List<TextBlock> textBlocks = new List<TextBlock>();
-        private readonly GameServicesClient gameServices = new GameServicesClient();
-        private readonly WordServicesClient wordServices = new WordServicesClient();
-        private readonly Match match;
+        private readonly DispatcherTimer _dispatcherTimer;
+        private readonly List<TextBlock> _textBlocks = new List<TextBlock>();
+        private readonly GameServicesClient _gameServices = new GameServicesClient();
+        private readonly WordServicesClient _wordServices = new WordServicesClient();
+        private readonly Match _match;
         string word;
         string clue;
         char? guestSelectLetter;
         int remainingAttempts = 6;
-        private bool matchFinished = false;
-        private List<char> charListWord;
+        bool matchFinished = false;
 
         public ChallengedView(Match match)
         {
@@ -36,14 +40,14 @@ namespace HangedMan_Client.Views
             LoadMatchWord(match);
             LoadMatchClue(match);
             LoadCategory(match.WordID, match.MatchLanguage);
-            this.match = match;
-            dispatcherTimer = new DispatcherTimer
+            this._match = match;
+            _dispatcherTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(1)
             };
-            dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Start();
-            remainingAttempts = gameServices.GetRemainingAttempts(match.MatchID);
+            _dispatcherTimer.Tick += DispatcherTimer_Tick;
+            _dispatcherTimer.Start();
+            remainingAttempts = _gameServices.GetRemainingAttempts(match.MatchID);
             lblCounter.Content = remainingAttempts.ToString();
         }
 
@@ -51,7 +55,7 @@ namespace HangedMan_Client.Views
         {
             if (!matchFinished)
             {
-                GetGuestLetter(match);
+                GetGuestLetter(_match);
                 UpdateImage();
                 CheckMatchFinish();
                 CheckGuestLeave();
@@ -60,7 +64,7 @@ namespace HangedMan_Client.Views
 
         private void GetGuestLetter(Match matchID)
         {
-            guestSelectLetter = gameServices.GetGuestLetter(match.MatchID);
+            guestSelectLetter = _gameServices.GetGuestLetter(_match.MatchID);
 
             if (guestSelectLetter.HasValue)
             {
@@ -71,7 +75,7 @@ namespace HangedMan_Client.Views
 
         private void UpdateImage()
         {
-            int newRemainingAttempts = gameServices.GetRemainingAttempts(match.MatchID);
+            int newRemainingAttempts = _gameServices.GetRemainingAttempts(_match.MatchID);
             if (newRemainingAttempts != remainingAttempts)
             {
                 remainingAttempts = newRemainingAttempts;
@@ -82,8 +86,8 @@ namespace HangedMan_Client.Views
             else if (remainingAttempts == 0)
             {
                 matchFinished = true;
-                dispatcherTimer.Stop();
-                gameServices.FinishMatch(match.MatchID);
+                _dispatcherTimer.Stop();
+                _gameServices.FinishMatch(_match.MatchID);
                 string message = Properties.Resources.WinnerMatchMessageChallenger;
                 var dialog = new WinDialog(message)
                 {
@@ -107,7 +111,7 @@ namespace HangedMan_Client.Views
             {
                 if (RemoveDiacritics(word[i].ToString().ToLower()) == normalizedSelected.ToString())
                 {
-                    textBlocks[i].Text = word[i].ToString();
+                    _textBlocks[i].Text = word[i].ToString();
                 }
             }
         }
@@ -115,7 +119,7 @@ namespace HangedMan_Client.Views
         private void GenerateWordLines(string word)
         {
             WordPanel.Children.Clear();
-            textBlocks.Clear();
+            _textBlocks.Clear();
 
             foreach (char letter in word)
             {
@@ -127,7 +131,7 @@ namespace HangedMan_Client.Views
                     Margin = new Thickness(5)
                 };
 
-                textBlocks.Add(texBlock);
+                _textBlocks.Add(texBlock);
                 WordPanel.Children.Add(texBlock);
             }
         }
@@ -163,6 +167,7 @@ namespace HangedMan_Client.Views
         {
             try
             {
+                List<char> charListWord;
                 word = await GetMatchWordAsync(match);
                 GenerateWordLines(word);
                 charListWord = new List<char>(RemoveDiacritics(word.ToLower()).Where(c => c != ' '));
@@ -180,11 +185,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    clueMatch = await wordServices.GetClueSpanishAsync(match.WordID);
+                    clueMatch = await _wordServices.GetClueSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    clueMatch = await wordServices.GetClueEnglishAsync(match.WordID);
+                    clueMatch = await _wordServices.GetClueEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -201,11 +206,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    wordMatch = await wordServices.GetWordSpanishAsync(match.WordID);
+                    wordMatch = await _wordServices.GetWordSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    wordMatch = await wordServices.GetWordEnglishAsync(match.WordID);
+                    wordMatch = await _wordServices.GetWordEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -219,7 +224,7 @@ namespace HangedMan_Client.Views
         {
             try
             {
-                string category = await Task.Run(() => wordServices.GetCategoryByWordID(wordID, matchLanguage));
+                string category = await Task.Run(() => _wordServices.GetCategoryByWordID(wordID, matchLanguage));
                 lblCategory.Content = category;
             }
             catch (Exception)
@@ -243,14 +248,14 @@ namespace HangedMan_Client.Views
 
         private void LeaveMatch()
         {
-            dispatcherTimer.Stop();
+            _dispatcherTimer.Stop();
             try
             {
                 Player player = SessionManager.Instance.LoggedInPlayer;
-                bool exit = gameServices.LeaveMatch(match.MatchID);
+                bool exit = _gameServices.LeaveMatch(_match.MatchID);
                 if (exit)
                 {
-                    gameServices.PenalizeAbandon(player.PlayerID);
+                    _gameServices.PenalizeAbandon(player.PlayerID);
                     string message = Properties.Resources.MatchLeaveMessage;
                     ShowMessage(message, 1);
                     NavigationService.Navigate(new LobbyView());
@@ -272,15 +277,15 @@ namespace HangedMan_Client.Views
         {
             if (matchFinished) return;
 
-            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
-            int? winnerId = gameServices.GetWinnerID(match.MatchID);
+            int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
+            int? winnerId = _gameServices.GetWinnerID(_match.MatchID);
 
             if (matchStatus == 3)
             {
-                if (winnerId.HasValue && winnerId.Value == match.ChallengerID)
+                if (winnerId.HasValue && winnerId.Value == _match.ChallengerID)
                 {
                     matchFinished = true;
-                    dispatcherTimer.Stop();
+                    _dispatcherTimer.Stop();
                     string message = Properties.Resources.WinnerMatchMessageChallenger;
                     var dialog = new WinDialog(message)
                     {
@@ -291,7 +296,7 @@ namespace HangedMan_Client.Views
                 else
                 {
                     matchFinished = true;
-                    dispatcherTimer.Stop();
+                    _dispatcherTimer.Stop();
                     string message = Properties.Resources.LosserChallengerMessage;
                     var dialog = new LossDialog(message)
                     {
@@ -304,10 +309,10 @@ namespace HangedMan_Client.Views
 
         private void CheckGuestLeave()
         {
-            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
+            int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
             if (matchStatus == 2)
             {
-                dispatcherTimer.Stop();
+                _dispatcherTimer.Stop();
                 string message = Properties.Resources.GuestLeaveMatchMessage;
                 ShowMessage(message, 2);
                 NavigationService.Navigate(new LobbyView());

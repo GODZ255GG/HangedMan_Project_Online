@@ -6,9 +6,12 @@ using System.Windows.Controls;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para RegisterView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que permite el registro de nuevos usuarios en el juego "Ahorcado". Valida los datos ingresados, verifica la unicidad de correo, teléfono y nickname, y comunica el resultado al usuario.
+    */
     public partial class RegisterView : Page
     {
         private readonly PlayerServicesClient playerServicesClient = new PlayerServicesClient();

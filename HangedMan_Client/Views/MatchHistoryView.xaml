@@ -61,9 +61,30 @@
                             </Grid.RowDefinitions>
                             <StackPanel Grid.Row="0" Orientation="Vertical">
                                 <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged" Margin="10,10,10,0" Background="Transparent" BorderThickness="0" SelectedIndex="0">
-                                    <TabItem x:Name="tbmWonGame" Header="&#x1F3C6;"/>
-                                    <TabItem x:Name="tbmLostGame" Header="&#x1F645; Lost Games"/>
-                                    <TabItem x:Name="tbmAbandonedGame" Header="&#x26A0; Abandoned Games"/>
+                                    <TabItem x:Name="tbmWonGame">
+                                        <TabItem.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="🏆" FontSize="16" Margin="0,0,5,0"/>
+                                                <TextBlock Text="{x:Static p:Resources.LabelWonMach}" />
+                                            </StackPanel>
+                                        </TabItem.Header>
+                                    </TabItem>
+                                    <TabItem x:Name="tbmLostGame">
+                                        <TabItem.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="🙅" FontSize="16" Margin="0,0,5,0"/>
+                                                <TextBlock Text="{x:Static p:Resources.LabelLostMach}" />
+                                            </StackPanel>
+                                        </TabItem.Header>
+                                    </TabItem>
+                                    <TabItem x:Name="tbmAbandonedGame">
+                                        <TabItem.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="⚠️" FontSize="16" Margin="0,0,5,0"/>
+                                                <TextBlock Text="{x:Static p:Resources.LabelMatchAbandoned}" />
+                                            </StackPanel>
+                                        </TabItem.Header>
+                                    </TabItem>
                                 </TabControl>
                                 <Separator Margin="0,0,0,10" />
                             </StackPanel>

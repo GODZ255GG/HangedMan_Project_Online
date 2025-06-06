@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="RFPuyRubFMhVT9so/hJ1CMVFnjBlB1IEURv0wtfEOJs=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="M3o/Q51HT7dtkPUZUBkAQG8GZF2uiSHM2k662q6yLIs=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IPlayerServices">
       <properties>
@@ -357,10 +357,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IPlayerServices" contract="HangedManService.IPlayerServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.69:8081/Services" bindingConfiguration="NetTcpBinding_IPlayerServices">
+    <endpoint name="NetTcpBinding_IPlayerServices" contract="HangedManService.IPlayerServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.70:8081/Services" bindingConfiguration="NetTcpBinding_IPlayerServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.1.69:8081/Services</serializedValue>
+          <serializedValue>net.tcp://192.168.1.70:8081/Services</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -442,10 +442,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IGameServices" contract="HangedManService.IGameServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.69:8081/Services" bindingConfiguration="NetTcpBinding_IGameServices">
+    <endpoint name="NetTcpBinding_IGameServices" contract="HangedManService.IGameServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.70:8081/Services" bindingConfiguration="NetTcpBinding_IGameServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.1.69:8081/Services</serializedValue>
+          <serializedValue>net.tcp://192.168.1.70:8081/Services</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -527,10 +527,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IWordServices" contract="HangedManService.IWordServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.69:8081/Services" bindingConfiguration="NetTcpBinding_IWordServices">
+    <endpoint name="NetTcpBinding_IWordServices" contract="HangedManService.IWordServices" bindingType="netTcpBinding" address="net.tcp://192.168.1.70:8081/Services" bindingConfiguration="NetTcpBinding_IWordServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.1.69:8081/Services</serializedValue>
+          <serializedValue>net.tcp://192.168.1.70:8081/Services</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

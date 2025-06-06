@@ -6,9 +6,12 @@ using System.Windows.Controls;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para EditProfile.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 27/05/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que permite al usuario editar su perfil, validando los datos ingresados y comunicándose con los servicios para actualizar la información del jugador.
+    */
     public partial class EditProfileView : Page
     {
         private readonly PlayerServicesClient playerServices = new PlayerServicesClient();

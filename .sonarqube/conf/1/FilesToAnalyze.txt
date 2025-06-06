@@ -1,0 +1,5 @@
+﻿C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\HangedManService.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\IGameServices.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\IPlayerServices.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\IWordServices.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\Properties\AssemblyInfo.cs

@@ -9,9 +9,12 @@ using System.Windows.Navigation;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para MatchHistoryView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que muestra el historial de partidas jugadas por el usuario en el juego "Ahorcado". Permite filtrar por partidas ganadas, perdidas o abandonadas, y navegar entre páginas de resultados.
+    */
     public partial class MatchHistoryView : Page
     {
         private readonly GameServicesClient gameServicesClient = new GameServicesClient();
@@ -23,9 +26,6 @@ namespace HangedMan_Client.Views
         {
             InitializeComponent();
             Loaded += async (s, e) => await InitializeData();
-            tbmWonGame.Header = "&#x1F3C6;" + " " + Properties.Resources.LabelWonMach;
-            tbmLostGame.Header = "&#x1F645;" + " " + Properties.Resources.LabelLostMach;
-            tbmAbandonedGame.Header = "&#x26A0;" + " " + Properties.Resources.LabelMatchAbandoned;
         }
 
         private async Task InitializeData()

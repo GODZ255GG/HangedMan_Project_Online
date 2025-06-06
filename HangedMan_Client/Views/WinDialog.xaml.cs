@@ -2,9 +2,12 @@
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para WinDialog.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Ventana de diálogo en WPF que muestra un mensaje de victoria al usuario en el juego "Ahorcado" y permite regresar al lobby.
+    */
     public partial class WinDialog : Window
     {
         public WinDialog(string message)

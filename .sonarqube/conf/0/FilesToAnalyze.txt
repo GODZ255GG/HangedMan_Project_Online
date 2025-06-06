@@ -1,0 +1,10 @@
+﻿C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\ConnectionDB.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\CategoryDTO.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\MatchDTO.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\PlayerDTO.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\WordDTO.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Category.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Match.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Player.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Word.cs
+C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\Properties\AssemblyInfo.cs

@@ -1,0 +1,1 @@
+_RQC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Services\Services.csprojò	CSharp7_3

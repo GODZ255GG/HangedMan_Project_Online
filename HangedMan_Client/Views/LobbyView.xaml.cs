@@ -9,9 +9,13 @@ using System.Windows.Threading;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Lobby.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que gestiona el lobby del juego "Ahorcado". 
+    *              Permite visualizar partidas disponibles, crear nuevas partidas, filtrar por categoría y palabra, y unirse a partidas existentes. Se comunica con los servicios de juego y palabras para actualizar la información en tiempo real.
+    */
     public partial class LobbyView : Page
     {
         private int matchLanguage;

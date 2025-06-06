@@ -5,9 +5,12 @@ using System.Windows.Controls;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para LoginView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que gestiona la autenticación de usuarios en el juego "Ahorcado". Permite iniciar sesión, cambiar el idioma de la interfaz y navegar hacia el registro de nuevos usuarios.
+    */
     public partial class LoginView : Page
     {
         private readonly PlayerServicesClient playerServices = new PlayerServicesClient();

@@ -1,0 +1,12 @@
+V
+MC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Player.csutf-8X
+OC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Category.csutf-8†
+{C:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.csutf-8b
+YC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\Properties\AssemblyInfo.csutf-8U
+LC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Match.csutf-8T
+KC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\POCO\Word.csutf-8V
+MC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\WordDTO.csutf-8X
+OC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\PlayerDTO.csutf-8W
+NC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\MatchDTO.csutf-8Z
+QC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\DTO\CategoryDTO.csutf-8W
+NC:\Users\ReneU\Documents\Github\HangedMan_Project_Online\Logic\ConnectionDB.csutf-8

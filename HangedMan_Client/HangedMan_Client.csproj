@@ -193,7 +193,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Connected Services\HangedManService\HangedManService.wsdl" />
+    <None Include="Connected Services\HangedManService\HangedManService1.wsdl" />
     <None Include="Connected Services\HangedManService\HangedMan_Client.HangedManService.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -206,13 +206,13 @@
     <None Include="Connected Services\HangedManService\HangedMan_Client.HangedManService.Word.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\HangedManService\item.xsd">
+    <None Include="Connected Services\HangedManService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\HangedManService\item1.xsd">
+    <None Include="Connected Services\HangedManService\item31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\HangedManService\item2.xsd">
+    <None Include="Connected Services\HangedManService\item32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -312,10 +312,10 @@
     <Resource Include="Resources\iconWarning.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\HangedManService\" />
+    <Resource Include="Resources\iconController.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\HangedManService\item.disco" />
+    <WCFMetadataStorage Include="Connected Services\HangedManService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\HangedManService\configuration91.svcinfo" />
@@ -330,7 +330,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\iconController.png" />
+    <None Include="Connected Services\HangedManService\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

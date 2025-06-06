@@ -3,9 +3,12 @@ using System.Windows.Controls;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para ProfileView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 05/06/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que muestra la información del perfil del usuario en el juego "Ahorcado", incluyendo datos personales y puntaje global, y permite navegar para editar la información o regresar al lobby.
+    */
     public partial class ProfileView : Page
     {
         private readonly PlayerServicesClient playerServicesClient = new PlayerServicesClient();

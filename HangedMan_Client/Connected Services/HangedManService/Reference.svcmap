@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="1f75a82b-ab19-4f5e-8606-c30e3cbfc0ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0da6ada5-0d5e-4b70-9322-54ca9ef81ac8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.1.69:8082/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.1.70:8082/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="HangedManService.wsdl" MetadataType="Wsdl" ID="6fe7b159-bf65-44bc-9e61-32be4f0d220f" SourceId="1" SourceUrl="http://192.168.1.69:8082/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="170d4047-427b-4202-818c-4374700f3a9a" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd2" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="9ce46d2b-d130-4fe9-968a-c166a1543764" SourceId="1" SourceUrl="http://192.168.1.69:8082/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="fe5db812-cdfd-4b58-b4b8-6cfc4dcf23db" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd1" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="4ce27c24-6833-490c-9b01-97c206432e23" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="3a3e2db6-20b0-4e9a-9560-77bee513d8dc" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd1" />
+    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="61a2fac2-a001-4484-b473-50eb735f88ea" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd0" />
+    <MetadataFile FileName="HangedManService1.wsdl" MetadataType="Wsdl" ID="c77a14d9-9433-4af1-a14b-ca1969c09c31" SourceId="1" SourceUrl="http://192.168.1.70:8082/?wsdl" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="1c510be4-6a7e-42a7-b382-4e3c9199291a" SourceId="1" SourceUrl="http://192.168.1.70:8082/?disco" />
+    <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="72f8603c-19ac-4d7f-badf-368c1b4c2eb8" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -13,9 +13,13 @@ using System.Windows.Threading;
 
 namespace HangedMan_Client.Views
 {
-    /// <summary>
-    /// Lógica de interacción para ChallengerView.xaml
-    /// </summary>
+    /*
+    * Fecha creación: 27/05/2025
+    * Última modificación: 05/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Vista de WPF que gestiona la lógica y la interfaz para el jugador retado en una partida del juego "Ahorcado".
+    *              Permite seleccionar letras, mostrar la palabra, pista y categoría, controlar los intentos, y comunicarse con los servicios de juego y palabras.
+    */
     public partial class ChallengerView : Page
     {
         private readonly DispatcherTimer dispatcherTimer;
