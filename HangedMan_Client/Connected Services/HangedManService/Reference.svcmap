@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.1.69:8082/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.163.174:8082/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="HangedManService.wsdl" MetadataType="Wsdl" ID="ed01e9b8-0e2f-478d-8116-695ff1ee76e6" SourceId="1" SourceUrl="http://192.168.1.69:8082/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1abcb34e-8522-486b-9c85-c5c8f2ff1180" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd2" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="a16fe798-96ba-49c7-affe-2a0f78bf253d" SourceId="1" SourceUrl="http://192.168.1.69:8082/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="b0deae65-eac0-4520-8cb1-5dda1b139020" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd1" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="6c4a6b5e-95e3-401a-b420-5bfd177b8758" SourceId="1" SourceUrl="http://192.168.1.69:8082/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="83d20c59-a8fb-4cbf-b729-cc8c9a257e3a" SourceId="1" SourceUrl="http://192.168.163.174:8082/?disco" />
+    <MetadataFile FileName="HangedManService.wsdl" MetadataType="Wsdl" ID="ef520b24-4f97-42e1-9e2c-fa1844a0b70c" SourceId="1" SourceUrl="http://192.168.163.174:8082/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="54e670a6-4bf5-4544-b5af-0023ef2c25bf" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="7bfff5c1-f52d-4e1e-9bac-3e8e7e6612a4" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="dedb624d-a122-4a7d-bd01-25027d6382e3" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
