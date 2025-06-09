@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.1.70:8082/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.163.174:8082/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="3a3e2db6-20b0-4e9a-9560-77bee513d8dc" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd1" />
-    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="61a2fac2-a001-4484-b473-50eb735f88ea" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd0" />
-    <MetadataFile FileName="HangedManService1.wsdl" MetadataType="Wsdl" ID="c77a14d9-9433-4af1-a14b-ca1969c09c31" SourceId="1" SourceUrl="http://192.168.1.70:8082/?wsdl" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="1c510be4-6a7e-42a7-b382-4e3c9199291a" SourceId="1" SourceUrl="http://192.168.1.70:8082/?disco" />
-    <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="72f8603c-19ac-4d7f-badf-368c1b4c2eb8" SourceId="1" SourceUrl="http://192.168.1.70:8082/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="83d20c59-a8fb-4cbf-b729-cc8c9a257e3a" SourceId="1" SourceUrl="http://192.168.163.174:8082/?disco" />
+    <MetadataFile FileName="HangedManService.wsdl" MetadataType="Wsdl" ID="ef520b24-4f97-42e1-9e2c-fa1844a0b70c" SourceId="1" SourceUrl="http://192.168.163.174:8082/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="54e670a6-4bf5-4544-b5af-0023ef2c25bf" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="7bfff5c1-f52d-4e1e-9bac-3e8e7e6612a4" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="dedb624d-a122-4a7d-bd01-25027d6382e3" SourceId="1" SourceUrl="http://192.168.163.174:8082/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
