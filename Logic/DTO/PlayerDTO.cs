@@ -6,13 +6,20 @@ using System.Linq;
 
 namespace Logic.DTO
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Clase de acceso a datos (DTO) para la entidad "Jugador" del juego "Ahorcado".
+    *              Proporciona métodos estáticos para el registro, autenticación, actualización de perfil y consulta de información de los jugadores en la base de datos utilizando LINQ to SQL.
+    */
     public class PlayerDTO
     {
         public static bool RegisterPlayer(Player newPlayer)
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContex = new DataContext(connection);
                 dataContex.GetTable<Player>().InsertOnSubmit(newPlayer);
@@ -29,7 +36,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 bool emailRegistered = dataContext.GetTable<Player>().Any(pl => pl.Email == email);
@@ -45,7 +52,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 bool telephoneRegistered = dataContext.GetTable<Player>().Any(pl => pl.PhoneNumber == telephone);
@@ -61,7 +68,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 bool nicknameRegistered = dataContext.GetTable<Player>().Any(pl => pl.NickName == nickname);
@@ -77,7 +84,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var user = (from us in dataContext.GetTable<Player>()
@@ -95,7 +102,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var playerToUpdate = dataContext.GetTable<Player>().FirstOrDefault(pl => pl.PlayerID == updatedPlayer.PlayerID);
@@ -128,7 +135,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var pointEarned = (from p in dataContext.GetTable<Player>()

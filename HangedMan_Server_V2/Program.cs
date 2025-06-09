@@ -3,6 +3,13 @@ using System.ServiceModel;
 
 namespace HangedMan_Server_V2
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Punto de entrada del servidor WCF para el juego "Ahorcado".
+    *              Inicializa y gestiona el ciclo de vida del servicio principal, permitiendo la comunicación con los clientes.
+    */
     internal class Program
     {
         static void Main(string[] args)

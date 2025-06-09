@@ -2,6 +2,13 @@
 
 namespace Logic.POCO
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Clase POCO que representa la entidad "Partida" en la base de datos del juego "Ahorcado".
+    *              Incluye propiedades para los datos de la partida, como identificadores, estado, jugadores, intentos restantes y configuración de idioma, mapeadas mediante LINQ to SQL.
+    */
     [Table(Name = "Match")]
     public class Match
     {

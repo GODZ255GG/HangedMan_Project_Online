@@ -4,7 +4,7 @@ using System.Windows;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 30/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Ventana de diálogo en WPF que muestra mensajes informativos, de advertencia o error al usuario, utilizando diferentes iconos según el tipo de mensaje.

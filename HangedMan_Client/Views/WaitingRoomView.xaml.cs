@@ -7,7 +7,7 @@ using System.Windows.Threading;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 27/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que gestiona la sala de espera para el juego "Ahorcado". Permite al jugador esperar a que otro usuario se una a la partida, salir de la sala o continuar cuando el oponente se conecta.

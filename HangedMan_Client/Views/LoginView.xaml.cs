@@ -6,7 +6,7 @@ using System.Windows.Controls;
 namespace HangedMan_Client.Views
 {
     /*
-    * Fecha creación: 05/06/2025
+    * Fecha creación: 22/05/2025
     * Última modificación: 05/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que gestiona la autenticación de usuarios en el juego "Ahorcado". Permite iniciar sesión, cambiar el idioma de la interfaz y navegar hacia el registro de nuevos usuarios.

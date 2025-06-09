@@ -6,13 +6,20 @@ using System.Linq;
 
 namespace Logic.DTO
 {
+    /*
+    * Fecha creación: 31/05/2025
+    * Última modificación: 06/06/2025
+    * Último modificador: René Ulises
+    * Descripción: Clase de acceso a datos (DTO) para la entidad "Partida" del juego "Ahorcado".
+    *              Proporciona métodos estáticos para la creación, consulta y actualización de partidas en la base de datos, utilizando LINQ to SQL.
+    */
     public class MatchDTO
     {
         public static Match CreateMatch(Match newMatch)
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 dataContext.GetTable<Match>().InsertOnSubmit(newMatch);
@@ -29,7 +36,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -49,7 +56,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -73,7 +80,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var matchToUpdate = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
@@ -100,7 +107,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -120,7 +127,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var matchToLeave = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
@@ -145,7 +152,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -165,7 +172,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var matchToLeave = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
@@ -191,7 +198,7 @@ namespace Logic.DTO
         {
             try
             {
-                var connection = ConnectionDB.getConnection();
+                var connection = ConnectionDB.GetConnection();
                 connection.Open();
                 DataContext dataContext = new DataContext(connection);
                 var charUpdate = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
@@ -216,7 +223,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -243,7 +250,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -270,7 +277,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -290,7 +297,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -310,7 +317,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -330,7 +337,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -371,7 +378,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
@@ -398,7 +405,7 @@ namespace Logic.DTO
         {
             try
             {
-                using (var connection = ConnectionDB.getConnection())
+                using (var connection = ConnectionDB.GetConnection())
                 {
                     connection.Open();
                     DataContext dataContext = new DataContext(connection);
