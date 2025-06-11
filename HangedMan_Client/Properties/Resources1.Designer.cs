@@ -322,6 +322,15 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, introduce tu correo electrónico.
+        /// </summary>
+        public static string EmailRequiredMessage {
+            get {
+                return ResourceManager.GetString("EmailRequiredMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No tienes partidas abandonadas..
         /// </summary>
         public static string EmptyAbandoned {
@@ -376,6 +385,24 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No se pudo crear la partida. Por favor inténtelo de nuevo más tarde..
+        /// </summary>
+        public static string ErrorCreateMatch {
+            get {
+                return ResourceManager.GetString("ErrorCreateMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se pudieron cargar las categorías. Intenta nuevamente..
+        /// </summary>
+        public static string ErrorLoadingCategories {
+            get {
+                return ResourceManager.GetString("ErrorLoadingCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error al cargar el historial.
         /// </summary>
         public static string ErrorLoadingHistory {
@@ -394,6 +421,15 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No se pudieron cargar las palabras. Intenta nuevamente..
+        /// </summary>
+        public static string ErrorLoadingWords {
+            get {
+                return ResourceManager.GetString("ErrorLoadingWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contrasena y/o email incorrectos!.
         /// </summary>
         public static string ErrorLogginMessage {
@@ -408,6 +444,24 @@ namespace HangedMan_Client.Properties {
         public static string ErrorModify {
             get {
                 return ResourceManager.GetString("ErrorModify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay un usuario autenticado. Por favor, inicia sesión nuevamente..
+        /// </summary>
+        public static string ErrorNoPlayer {
+            get {
+                return ResourceManager.GetString("ErrorNoPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debes seleccionar una palabra para crear la partida..
+        /// </summary>
+        public static string ErrorNoWordSelected {
+            get {
+                return ResourceManager.GetString("ErrorNoWordSelected", resourceCulture);
             }
         }
         
@@ -489,6 +543,15 @@ namespace HangedMan_Client.Properties {
         public static string GameStartAutomatically {
             get {
                 return ResourceManager.GetString("GameStartAutomatically", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error inesperado. Intenta nuevamente más tarde..
+        /// </summary>
+        public static string GenericErrorMessage {
+            get {
+                return ResourceManager.GetString("GenericErrorMessage", resourceCulture);
             }
         }
         
@@ -1051,7 +1114,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Por favor ingresa un nickname valido, solo puede contener letras y numeros.
+        ///   Busca una cadena traducida similar a Por favor ingresa un nickname valido, solo puede contener letras, numeros y no más de 17 caracteres..
         /// </summary>
         public static string NicknameNotValid {
             get {
@@ -1069,11 +1132,29 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay categorías disponibles..
+        /// </summary>
+        public static string NoCategoriesAvailable {
+            get {
+                return ResourceManager.GetString("NoCategoriesAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No hay partidas disponibles actualmente. ¡Sé el primero en crear una!.
         /// </summary>
         public static string NoMatchesAvailable {
             get {
                 return ResourceManager.GetString("NoMatchesAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay palabras disponibles en esta categoría..
+        /// </summary>
+        public static string NoWordsInCategory {
+            get {
+                return ResourceManager.GetString("NoWordsInCategory", resourceCulture);
             }
         }
         
@@ -1119,6 +1200,15 @@ namespace HangedMan_Client.Properties {
         public static string PasswordRegister {
             get {
                 return ResourceManager.GetString("PasswordRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por favor, introduce tu contraseña.
+        /// </summary>
+        public static string PasswordRequiredMessage {
+            get {
+                return ResourceManager.GetString("PasswordRequiredMessage", resourceCulture);
             }
         }
         

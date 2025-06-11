@@ -7,7 +7,7 @@ namespace HangedMan_Client.Views
 {
     /*
     * Fecha creación: 22/05/2025
-    * Última modificación: 05/06/2025
+    * Última modificación: 10/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que gestiona la autenticación de usuarios en el juego "Ahorcado". Permite iniciar sesión, cambiar el idioma de la interfaz y navegar hacia el registro de nuevos usuarios.
     */
@@ -38,50 +38,44 @@ namespace HangedMan_Client.Views
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            string email = txtEmail.Text;
+            string password = txtPassword.Password;
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                ShowMessage(Properties.Resources.EmailRequiredMessage, 2);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                ShowMessage(Properties.Resources.PasswordRequiredMessage, 2);
+                return;
+            }
+
             try
             {
-                string email = txtEmail.Text;
-                string password = txtPassword.Password;
-
-                if (!CheckCredentials(email, password))
-                {
-                    string message = Properties.Resources.IncompleteLogginMessage;
-                    ShowMessage(message, 2);
-                }
-                else
-                {
-                    Player player = playerServices.LogIn(email, password);
-                    if (player != null)
-                    {
-                        string message = Properties.Resources.LogginMessage;
-                        string messageComplete = message + " " + player.NickName;
-                        ShowMessage(messageComplete, 1);
-                        SessionManager.Instance.Login(player);
-
-                        NavigationService.Navigate(new LobbyView());
-                    }
-                    else
-                    {
-                        string message = Properties.Resources.ErrorLogginMessage;
-                        ShowMessage(message, 3);
-                    }
-                }
+                RealizarLogin(email, password);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ShowMessage(ex.Message, 3);
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
             }
         }
 
-        private bool CheckCredentials(string emai, string password)
+        private void RealizarLogin(string email, string password)
         {
-            if (string.IsNullOrEmpty(emai) || string.IsNullOrEmpty(password))
+            Player player = playerServices.LogIn(email, password);
+            if (player != null)
             {
-                return false;
+                string message = $"{Properties.Resources.LogginMessage} {player.NickName}";
+                ShowMessage(message, 1);
+                SessionManager.Instance.Login(player);
+                NavigationService.Navigate(new LobbyView());
             }
-
-            return true;
-
+            else
+            {
+                ShowMessage(Properties.Resources.ErrorLogginMessage, 3);
+            }
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)

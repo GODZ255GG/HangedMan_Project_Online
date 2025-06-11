@@ -1,6 +1,7 @@
 ﻿using HangedMan_Client.HangedManService;
 using System;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,7 +9,7 @@ namespace HangedMan_Client.Views
 {
     /*
     * Fecha creación: 20/05/2025
-    * Última modificación: 05/06/2025
+    * Última modificación: 10/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que permite el registro de nuevos usuarios en el juego "Ahorcado". Valida los datos ingresados, verifica la unicidad de correo, teléfono y nickname, y comunica el resultado al usuario.
     */
@@ -85,7 +86,7 @@ namespace HangedMan_Client.Views
 
         private async void Register_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckData())
+            if (HasEmptyFields())
                 return;
 
             if (!CheckPasswords())
@@ -93,24 +94,30 @@ namespace HangedMan_Client.Views
 
             if (!CheckPasswordsMatch())
             {
-                ShowMessage(Properties.Resources.PasswordDoesntMatch,2);
+                ShowMessage(Properties.Resources.PasswordDoesntMatch, 2);
                 return;
             }
 
             if (!AllValidate())
                 return;
 
-            if (await playerServicesClient.NicknameAlreadyRegisteredAsync(txtNickname.Text))
+            var nicknameTask = playerServicesClient.NicknameAlreadyRegisteredAsync(txtNickname.Text);
+            var emailTask = playerServicesClient.EmailAlreadyRegisteredAsync(txtEmail.Text);
+            var phoneTask = playerServicesClient.TelephoneAlreadyExistAsync(txtTelephone.Text);
+
+            await Task.WhenAll(nicknameTask, emailTask, phoneTask);
+
+            if (nicknameTask.Result)
             {
                 ShowMessage(Properties.Resources.NicknameAlreadyRegistered, 2);
                 return;
             }
-            if (await playerServicesClient.EmailAlreadyRegisteredAsync(txtEmail.Text))
+            if (emailTask.Result)
             {
                 ShowMessage(Properties.Resources.EmailAlreadyRegistered, 2);
                 return;
             }
-            if (await playerServicesClient.TelephoneAlreadyExistAsync(txtTelephone.Text))
+            if (phoneTask.Result)
             {
                 ShowMessage(Properties.Resources.TelephoneAlreadyRegistered, 2);
                 return;
@@ -118,22 +125,32 @@ namespace HangedMan_Client.Views
 
             try
             {
-                Player newPlayer = CreateNewPlayer();
-                bool confirmation = await playerServicesClient.RegisterPlayerAsync(newPlayer);
-                if (confirmation)
-                {
-                    ShowMessage(Properties.Resources.ConfirmationUserRegister, 1);
-                    mainWindow.goToLoginView();
-                }
-                else
-                {
-                    ShowMessage(Properties.Resources.ErrorUserRegister, 3);
-                }
+                await RealizarRegistroAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ShowMessage(ex.Message, 3);
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
             }
+        }
+
+        private async Task RealizarRegistroAsync()
+        {
+            Player newPlayer = CreateNewPlayer();
+            bool confirmation = await playerServicesClient.RegisterPlayerAsync(newPlayer);
+            if (confirmation)
+            {
+                ShowMessage(Properties.Resources.ConfirmationUserRegister, 1);
+                mainWindow.goToLoginView();
+            }
+            else
+            {
+                ShowMessage(Properties.Resources.ErrorUserRegister, 3);
+            }
+        }
+
+        private bool HasEmptyFields()
+        {
+            return CheckData();
         }
 
         private Player CreateNewPlayer()
@@ -219,7 +236,7 @@ namespace HangedMan_Client.Views
 
         private bool ValidateNick(string nickName)
         {
-            if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$"))
+            if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$") && nickName.Length < 18)
             {
                 return true;
             }

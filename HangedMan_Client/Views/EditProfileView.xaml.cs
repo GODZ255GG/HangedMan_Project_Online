@@ -1,6 +1,7 @@
 ﻿using HangedMan_Client.HangedManService;
 using System;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,7 +9,7 @@ namespace HangedMan_Client.Views
 {
     /*
     * Fecha creación: 26/05/2025
-    * Última modificación: 05/06/2025
+    * Última modificación: 10/06/2025
     * Último modificador: René Ulises
     * Descripción: Vista de WPF que permite al usuario editar su perfil, validando los datos ingresados y comunicándose con los servicios para actualizar la información del jugador.
     */
@@ -52,48 +53,49 @@ namespace HangedMan_Client.Views
 
         private async void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (!CheckData())
-            {
-                if (CheckPasswords())
-                {
-                    if (CheckPasswordsMatch())
-                    {
-                        if (AllValidate())
-                        {
-                            try
-                            {
-                                player.FullName = txtFullName.Text.Trim();
-                                player.NickName = txtNickname.Text.Trim();
-                                player.Email = txtEmail.Text.Trim();
-                                player.PhoneNumber = txtTelephone.Text.Trim();
-                                player.Password = txtPassword.Password.Trim();
-                                player.BirthDate = dpBirthDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+            if (CheckData())
+                return;
 
-                                bool confirmation = await playerServices.UpdatePlayerProfileAsync(player);
-                                if (confirmation)
-                                {
-                                    string message = Properties.Resources.ConfirmationModify;
-                                    ShowMessage(message, 1);
-                                    NavigationService.Navigate(new ProfileView());
-                                }
-                                else
-                                {
-                                    string message = Properties.Resources.ErrorModify;
-                                    ShowMessage(message, 3);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                ShowMessage(ex.Message, 3);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        string message = Properties.Resources.PasswordDoesntMatch;
-                        ShowMessage(message, 2);
-                    }
-                }
+            if (!CheckPasswords())
+                return;
+
+            if (!CheckPasswordsMatch())
+            {
+                ShowMessage(Properties.Resources.PasswordDoesntMatch, 2);
+                return;
+            }
+
+            if (!AllValidate())
+                return;
+
+            try
+            {
+                await ActualizarPerfilAsync();
+            }
+            catch (Exception)
+            {
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+            }
+        }
+
+        private async Task ActualizarPerfilAsync()
+        {
+            player.FullName = txtFullName.Text.Trim();
+            player.NickName = txtNickname.Text.Trim();
+            player.Email = txtEmail.Text.Trim();
+            player.PhoneNumber = txtTelephone.Text.Trim();
+            player.Password = txtPassword.Password.Trim();
+            player.BirthDate = dpBirthDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+
+            bool confirmation = await playerServices.UpdatePlayerProfileAsync(player);
+            if (confirmation)
+            {
+                ShowMessage(Properties.Resources.ConfirmationModify, 1);
+                NavigationService.Navigate(new ProfileView());
+            }
+            else
+            {
+                ShowMessage(Properties.Resources.ErrorModify, 3);
             }
         }
 
@@ -101,65 +103,26 @@ namespace HangedMan_Client.Views
         {
             bool hasEmptyField = false;
 
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            bool CheckField(Func<string> getValue, Label errorLabel)
             {
-                labelEmailEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelEmailEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtNickname.Text))
-            {
-                labelNicknameEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelNicknameEmpty.Visibility = Visibility.Hidden;
+                if (string.IsNullOrWhiteSpace(getValue()))
+                {
+                    errorLabel.Visibility = Visibility.Visible;
+                    return true;
+                }
+                else
+                {
+                    errorLabel.Visibility = Visibility.Hidden;
+                    return false;
+                }
             }
 
-            if (string.IsNullOrWhiteSpace(txtFullName.Text))
-            {
-                labelNamesEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelNamesEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtTelephone.Text))
-            {
-                labelTelephoneEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelTelephoneEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Password))
-            {
-                labelPasswordEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelPasswordEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPasswordConfirmation.Password))
-            {
-                labelPasswordConfirmationEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelPasswordConfirmationEmpty.Visibility = Visibility.Hidden;
-            }
+            hasEmptyField |= CheckField(() => txtEmail.Text, labelEmailEmpty);
+            hasEmptyField |= CheckField(() => txtNickname.Text, labelNicknameEmpty);
+            hasEmptyField |= CheckField(() => txtFullName.Text, labelNamesEmpty);
+            hasEmptyField |= CheckField(() => txtTelephone.Text, labelTelephoneEmpty);
+            hasEmptyField |= CheckField(() => txtPassword.Password, labelPasswordEmpty);
+            hasEmptyField |= CheckField(() => txtPasswordConfirmation.Password, labelPasswordConfirmationEmpty);
 
             if (dpBirthDate.SelectedDate == null)
             {
@@ -204,7 +167,7 @@ namespace HangedMan_Client.Views
             string password = txtPassword.Password.Trim();
             string phoneNumber = txtTelephone.Text.Trim();
 
-            if (ValidateNames(name) && ValidateNick(nickName)
+            if (ValidateFullName(name) && ValidateNick(nickName)
                 && ValidateEmail(email) && ValidatePassword(password) && ValidateTelephone(phoneNumber))
             {
                 return true;
@@ -212,7 +175,7 @@ namespace HangedMan_Client.Views
             return false;
         }
 
-        private bool ValidateNames(string name)
+        private bool ValidateFullName(string name)
         {
 
             if (Regex.IsMatch(name, @"^[a-zA-Z\s]+$"))
@@ -221,8 +184,7 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                string message = Properties.Resources.NamesNotValid;
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.NamesNotValid, 2);
                 return false;
             }
         }
@@ -250,7 +212,6 @@ namespace HangedMan_Client.Views
 
         private bool ValidateEmail(string email)
         {
-            string message = Properties.Resources.EmailNotValid;
             if (Regex.IsMatch(email, @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@"
                 + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$"))
             {
@@ -258,36 +219,33 @@ namespace HangedMan_Client.Views
             }
             else
             {
-
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.EmailNotValid, 2);
                 return false;
             }
         }
 
         private bool ValidateNick(string nickName)
         {
-            string message = Properties.Resources.NicknameNotValid;
-            if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$"))
+            if (Regex.IsMatch(nickName, @"^[a-zA-Z0-9]+$") && nickName.Length < 18)
             {
                 return true;
             }
             else
             {
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.NicknameNotValid, 2);
                 return false;
             }
         }
 
         public bool ValidatePassword(string password)
         {
-            string message = Properties.Resources.PasswordNotValid;
             if (Regex.IsMatch(password, @"^[a-zA-Z0-9]{8,15}$"))
             {
                 return true;
             }
             else
             {
-                ShowMessage(message, 2);
+                ShowMessage(Properties.Resources.PasswordNotValid, 2);
                 return false;
             }
         }
