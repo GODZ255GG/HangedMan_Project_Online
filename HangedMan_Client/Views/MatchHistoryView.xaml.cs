@@ -69,6 +69,8 @@ namespace HangedMan_Client.Views
                     break;
             }
 
+            filteredItems = filteredItems.OrderByDescending(x => x.Date);
+
             var pageItems = filteredItems.Skip(currentPage * PageSize).Take(PageSize).ToList();
             HistoryList.ItemsSource = pageItems;
 
@@ -135,9 +137,9 @@ namespace HangedMan_Client.Views
                 Opponent = await GetOpponentName(match, currentPlayerId),
                 Word = await GetMatchWord(match),
                 Result = GetMatchResult(match, currentPlayerId),
-                Date = match.DateMatch,
+                Date = DateTime.Parse(match.DateMatch),
                 Language = match.MatchLanguage == 1 ? Properties.Resources.SpanishLanguage
-                                                   : Properties.Resources.EnglishLanguage
+                                                    : Properties.Resources.EnglishLanguage
             };
         }
 
@@ -202,7 +204,7 @@ namespace HangedMan_Client.Views
         public string Opponent { get; set; }
         public string Word { get; set; }
         public string Result { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Language { get; set; }
     }
 }
