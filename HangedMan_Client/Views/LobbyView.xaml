@@ -131,10 +131,10 @@
             <Border CornerRadius="20,20,0,0"  Background="#1E40AF">
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <Label Content="Hangedman" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
-                    <Button x:Name="btnProfile" Margin="840,0,0,0" FontSize="16" Background="#EFF6FF" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="152" Height="36" Click="BtnProfile_Click" Style="{StaticResource ProfileButtonStyle}" BorderBrush="{x:Null}">
+                    <Button x:Name="btnProfile" Margin="790,0,0,0" FontSize="16" Background="#EFF6FF" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="Auto" Height="36" Click="BtnProfile_Click" Style="{StaticResource ProfileButtonStyle}" BorderBrush="{x:Null}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Image Source="/Resources/iconPlayer.png" Width="25" Height="25" Margin="0,0,5,0"/>
-                            <Label x:Name="lblPlayerNickname" Content="Player 1" Foreground="#1E40AF" FontWeight="Bold" FontSize="16"/>
+                            <Image Source="/Resources/iconPlayer.png" Width="25" Height="25" Margin="10,0,5,0"/>
+                            <Label x:Name="lblPlayerNickname" Content="Player 1" Foreground="#1E40AF" FontWeight="Bold" FontSize="16" Margin="0,0,10,0"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>

@@ -364,7 +364,7 @@
     <value>The nickname is already registered</value>
   </data>
   <data name="NicknameNotValid" xml:space="preserve">
-    <value>Please enter a valid nickname, only numbers and letters</value>
+    <value>Please enter a valid nickname, it can only contain letters, numbers and no more than 17 characters.</value>
   </data>
   <data name="NickNameRegister" xml:space="preserve">
     <value>Nickname</value>
@@ -572,5 +572,35 @@
   </data>
   <data name="LabelGameLanguage" xml:space="preserve">
     <value>Game language: </value>
+  </data>
+  <data name="EmailRequiredMessage" xml:space="preserve">
+    <value>Please enter your email address.</value>
+  </data>
+  <data name="PasswordRequiredMessage" xml:space="preserve">
+    <value>Please enter your password.</value>
+  </data>
+  <data name="GenericErrorMessage" xml:space="preserve">
+    <value>An unexpected error has occurred. Please try again later.</value>
+  </data>
+  <data name="ErrorCreateMatch" xml:space="preserve">
+    <value>The game could not be created. Please try again later.</value>
+  </data>
+  <data name="ErrorNoPlayer" xml:space="preserve">
+    <value>No authenticated user found. Please log in again.</value>
+  </data>
+  <data name="ErrorNoWordSelected" xml:space="preserve">
+    <value>You must select a word to create the game.</value>
+  </data>
+  <data name="NoWordsInCategory" xml:space="preserve">
+    <value>There are no words available in this category.</value>
+  </data>
+  <data name="ErrorLoadingWords" xml:space="preserve">
+    <value>Could not load words. Please try again.</value>
+  </data>
+  <data name="NoCategoriesAvailable" xml:space="preserve">
+    <value>No categories available.</value>
+  </data>
+  <data name="ErrorLoadingCategories" xml:space="preserve">
+    <value>The categories could not be loaded. Please try again.</value>
   </data>
 </root>

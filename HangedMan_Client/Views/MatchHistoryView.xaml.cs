@@ -41,14 +41,10 @@ namespace HangedMan_Client.Views
                     allHistoryItems.Add(await CreateHistoryItem(match, player.PlayerID));
                 UpdatePage();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var message = $"{Properties.Resources.ErrorLoadingHistory}: {ex.Message}";
-                var dialog = new MessageBoxInformation(message, 3)
-                {
-                    Owner = Application.Current.MainWindow
-                };
-                dialog.ShowDialog();
+                var message = Properties.Resources.ErrorLoadingHistory;
+                ShowMessage(message, 3);
             }
         }
 
@@ -188,6 +184,15 @@ namespace HangedMan_Client.Views
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LobbyView());
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type)
+            {
+                Owner = Application.Current.MainWindow
+            };
+            dialog.ShowDialog();
         }
     }
 
