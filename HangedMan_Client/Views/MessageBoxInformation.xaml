@@ -33,7 +33,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="47"/>
                     </Grid.RowDefinitions>
 
                     <Border Grid.Row="0" CornerRadius="12,12,0,0">
@@ -54,7 +54,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button x:Name="btnAcept" Content="{x:Static p:Resources.AceptButton}" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click"/>
+                        <Button x:Name="btnAcept" Content="{x:Static p:Resources.AceptButton}" Width="120" Height="36"  Background="#5B4DF7" Foreground="White" FontWeight="Bold" FontSize="15" BorderThickness="0" Cursor="Hand" Style="{StaticResource AccionButtonStyle}" Click="BtnAcept_Click" Margin="0,0,0,10"/>
                     </StackPanel>
                 </Grid>
             </Border>

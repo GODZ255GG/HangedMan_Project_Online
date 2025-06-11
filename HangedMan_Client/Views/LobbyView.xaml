@@ -128,16 +128,46 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Border CornerRadius="20,20,0,0"  Background="#1E40AF">
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Label Content="Hangedman" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
-                    <Button x:Name="btnProfile" Margin="790,0,0,0" FontSize="16" Background="#EFF6FF" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="Auto" Height="36" Click="BtnProfile_Click" Style="{StaticResource ProfileButtonStyle}" BorderBrush="{x:Null}">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Border CornerRadius="20,20,0,0" Background="#1E40AF">
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Título a la izquierda -->
+                    <Label Content="Hangedman"
+               VerticalAlignment="Center"
+               FontSize="27"
+               Margin="20,0,0,0"
+               FontWeight="Bold"
+               Foreground="White"
+               Height="46"/>
+                    <!-- Botón de perfil a la derecha -->
+                    <Button x:Name="btnProfile"
+                Grid.Column="1"
+                FontSize="16"
+                Background="#EFF6FF"
+                Foreground="#FF0A04BB"
+                FontFamily="Lato Semibold"
+                Height="36"
+                Click="BtnProfile_Click"
+                Style="{StaticResource ProfileButtonStyle}"
+                BorderBrush="{x:Null}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,0,20,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Image Source="/Resources/iconPlayer.png" Width="25" Height="25" Margin="10,0,5,0"/>
-                            <Label x:Name="lblPlayerNickname" Content="Player 1" Foreground="#1E40AF" FontWeight="Bold" FontSize="16" Margin="0,0,10,0"/>
+                            <Label x:Name="lblPlayerNickname"
+                       Content="Player 1"
+                       Foreground="#1E40AF"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Margin="0,0,10,0"
+                       VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                </StackPanel>
+                </Grid>
             </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
