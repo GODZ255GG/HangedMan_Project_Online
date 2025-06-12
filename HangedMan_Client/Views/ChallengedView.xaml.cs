@@ -64,37 +64,59 @@ namespace HangedMan_Client.Views
 
         private void GetGuestLetter(Match matchID)
         {
-            guestSelectLetter = _gameServices.GetGuestLetter(_match.MatchID);
-
-            if (guestSelectLetter.HasValue)
+            try
             {
-                char selectLetter = guestSelectLetter.Value;
-                UpdateWordLines(selectLetter);
+                guestSelectLetter = _gameServices.GetGuestLetter(_match.MatchID);
+
+                if (guestSelectLetter.HasValue)
+                {
+                    char selectLetter = guestSelectLetter.Value;
+                    UpdateWordLines(selectLetter);
+                }
             }
+            catch (Exception)
+            {
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
+            }            
         }
 
         private void UpdateImage()
         {
-            int newRemainingAttempts = _gameServices.GetRemainingAttempts(_match.MatchID);
-            if (newRemainingAttempts != remainingAttempts)
+            try
             {
-                remainingAttempts = newRemainingAttempts;
-                lblCounter.Content = remainingAttempts.ToString();
-                int errorCounter = 6 - remainingAttempts;
-                ChangeImage(errorCounter);
-            }
-            else if (remainingAttempts == 0)
-            {
-                matchFinished = true;
-                dispatcherTimer.Stop();
-                _gameServices.FinishMatch(_match.MatchID);
-                string message = Properties.Resources.WinnerMatchMessageChallenger;
-                var dialog = new WinDialog(message)
+                int newRemainingAttempts = _gameServices.GetRemainingAttempts(_match.MatchID);
+                if (newRemainingAttempts != remainingAttempts)
                 {
-                    Owner = Application.Current.MainWindow
-                };
-                dialog.ShowDialog();
+                    remainingAttempts = newRemainingAttempts;
+                    lblCounter.Content = remainingAttempts.ToString();
+                    int errorCounter = 6 - remainingAttempts;
+                    ChangeImage(errorCounter);
+                }
+                else if (remainingAttempts == 0)
+                {
+                    matchFinished = true;
+                    dispatcherTimer.Stop();
+                    _gameServices.FinishMatch(_match.MatchID);
+                    string message = Properties.Resources.WinnerMatchMessageChallenger;
+                    var dialog = new WinDialog(message)
+                    {
+                        Owner = Application.Current.MainWindow
+                    };
+                    dialog.ShowDialog();
+                }
+            }catch (Exception)
+            {
+                dispatcherTimer.Stop();
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
+            
         }
 
         private void ChangeImage(int errorCounter)
@@ -292,47 +314,67 @@ namespace HangedMan_Client.Views
 
         private void CheckMatchFinish()
         {
-            if (matchFinished) return;
-
-            int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
-            int? winnerId = _gameServices.GetWinnerID(_match.MatchID);
-
-            if (matchStatus == 3)
+            try
             {
-                if (winnerId.HasValue && winnerId.Value == _match.ChallengerID)
+                if (matchFinished) return;
+
+                int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
+                int? winnerId = _gameServices.GetWinnerID(_match.MatchID);
+
+                if (matchStatus == 3)
                 {
-                    matchFinished = true;
-                    dispatcherTimer.Stop();
-                    string message = Properties.Resources.WinnerMatchMessageChallenger;
-                    var dialog = new WinDialog(message)
+                    if (winnerId.HasValue && winnerId.Value == _match.ChallengerID)
                     {
-                        Owner = Application.Current.MainWindow
-                    };
-                    dialog.ShowDialog();
-                }
-                else
-                {
-                    matchFinished = true;
-                    dispatcherTimer.Stop();
-                    string message = Properties.Resources.LosserChallengerMessage;
-                    var dialog = new LossDialog(message)
+                        matchFinished = true;
+                        dispatcherTimer.Stop();
+                        string message = Properties.Resources.WinnerMatchMessageChallenger;
+                        var dialog = new WinDialog(message)
+                        {
+                            Owner = Application.Current.MainWindow
+                        };
+                        dialog.ShowDialog();
+                    }
+                    else
                     {
-                        Owner = Application.Current.MainWindow
-                    };
-                    dialog.ShowDialog();
+                        matchFinished = true;
+                        dispatcherTimer.Stop();
+                        string message = Properties.Resources.LosserChallengerMessage;
+                        var dialog = new LossDialog(message)
+                        {
+                            Owner = Application.Current.MainWindow
+                        };
+                        dialog.ShowDialog();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                dispatcherTimer.Stop();
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
         private void CheckGuestLeave()
         {
-            int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
-            if (matchStatus == 2)
+            try
+            {
+                int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
+                if (matchStatus == 2)
+                {
+                    dispatcherTimer.Stop();
+                    string message = Properties.Resources.GuestLeaveMatchMessage;
+                    ShowMessage(message, 2);
+                    NavigationService.Navigate(new LobbyView());
+                }
+            }
+            catch (Exception)
             {
                 dispatcherTimer.Stop();
-                string message = Properties.Resources.GuestLeaveMatchMessage;
-                ShowMessage(message, 2);
-                NavigationService.Navigate(new LobbyView());
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
