@@ -23,7 +23,7 @@ namespace HangedMan_Client.Views
 
     public partial class ChallengedView : Page
     {
-        private readonly DispatcherTimer _dispatcherTimer;
+        private readonly DispatcherTimer dispatcherTimer;
         private readonly List<TextBlock> _textBlocks = new List<TextBlock>();
         private readonly GameServicesClient _gameServices = new GameServicesClient();
         private readonly WordServicesClient _wordServices = new WordServicesClient();
@@ -41,12 +41,12 @@ namespace HangedMan_Client.Views
             LoadMatchClue(match);
             LoadCategory(match.WordID, match.MatchLanguage);
             this._match = match;
-            _dispatcherTimer = new DispatcherTimer
+            dispatcherTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromSeconds(1)
             };
-            _dispatcherTimer.Tick += DispatcherTimer_Tick;
-            _dispatcherTimer.Start();
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Start();
             remainingAttempts = _gameServices.GetRemainingAttempts(match.MatchID);
             lblCounter.Content = remainingAttempts.ToString();
         }
@@ -86,7 +86,7 @@ namespace HangedMan_Client.Views
             else if (remainingAttempts == 0)
             {
                 matchFinished = true;
-                _dispatcherTimer.Stop();
+                dispatcherTimer.Stop();
                 _gameServices.FinishMatch(_match.MatchID);
                 string message = Properties.Resources.WinnerMatchMessageChallenger;
                 var dialog = new WinDialog(message)
@@ -143,9 +143,14 @@ namespace HangedMan_Client.Views
                 clue = await GetMatchClueAsync(match);
                 lblClue.Content = clue;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                ShowMessage(e.Message, 3);
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
@@ -172,9 +177,14 @@ namespace HangedMan_Client.Views
                 GenerateWordLines(word);
                 charListWord = new List<char>(RemoveDiacritics(word.ToLower()).Where(c => c != ' '));
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                ShowMessage(e.Message, 3);
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
@@ -229,15 +239,22 @@ namespace HangedMan_Client.Views
             }
             catch (Exception)
             {
-                lblCategory.Content = "N/A";
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
         private void BtnLeaveMatch_Click(object sender, RoutedEventArgs e)
         {
             string message = Properties.Resources.LeaveMatchConfirmation;
-            var dialog = new QuestionMessage(message);
-            dialog.Owner = Application.Current.MainWindow;
+            var dialog = new QuestionMessage(message)
+            {
+                Owner = Application.Current.MainWindow
+            };
             bool? result = dialog.ShowDialog();
 
             if (result == true)
@@ -248,7 +265,7 @@ namespace HangedMan_Client.Views
 
         private void LeaveMatch()
         {
-            _dispatcherTimer.Stop();
+            dispatcherTimer.Stop();
             try
             {
                 Player player = SessionManager.Instance.LoggedInPlayer;
@@ -285,7 +302,7 @@ namespace HangedMan_Client.Views
                 if (winnerId.HasValue && winnerId.Value == _match.ChallengerID)
                 {
                     matchFinished = true;
-                    _dispatcherTimer.Stop();
+                    dispatcherTimer.Stop();
                     string message = Properties.Resources.WinnerMatchMessageChallenger;
                     var dialog = new WinDialog(message)
                     {
@@ -296,7 +313,7 @@ namespace HangedMan_Client.Views
                 else
                 {
                     matchFinished = true;
-                    _dispatcherTimer.Stop();
+                    dispatcherTimer.Stop();
                     string message = Properties.Resources.LosserChallengerMessage;
                     var dialog = new LossDialog(message)
                     {
@@ -312,7 +329,7 @@ namespace HangedMan_Client.Views
             int matchStatus = _gameServices.GetMatchStatus(_match.MatchID);
             if (matchStatus == 2)
             {
-                _dispatcherTimer.Stop();
+                dispatcherTimer.Stop();
                 string message = Properties.Resources.GuestLeaveMatchMessage;
                 ShowMessage(message, 2);
                 NavigationService.Navigate(new LobbyView());

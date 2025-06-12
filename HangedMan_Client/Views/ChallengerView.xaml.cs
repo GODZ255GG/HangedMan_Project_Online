@@ -123,9 +123,14 @@ namespace HangedMan_Client.Views
                 clue = await GetMatchClueAsync(match);
                 lblClue.Content = clue;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                ShowMessage(e.Message, 3);
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
@@ -137,9 +142,14 @@ namespace HangedMan_Client.Views
                 GenerateWordLines(word);
                 charListWord = new List<char>(RemoveDiacritics(word.ToLower()).Where(c => c != ' '));
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                ShowMessage(e.Message, 3);
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
@@ -366,7 +376,12 @@ namespace HangedMan_Client.Views
             }
             catch (Exception)
             {
-                lblCategory.Content = "N/A";
+                dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 

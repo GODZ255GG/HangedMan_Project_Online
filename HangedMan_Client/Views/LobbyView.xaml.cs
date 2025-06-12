@@ -78,12 +78,10 @@ namespace HangedMan_Client.Views
             {
                 dispatcherTimer.Stop();
 
-                SessionManager.Instance.Logout();
-
                 ShowMessage(Properties.Resources.ErrorLoadingMatches, 3);
 
                 var mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.frame.Navigate(new LobbyView());
+                mainWindow.GoToLoginView();
             }
         }
 
