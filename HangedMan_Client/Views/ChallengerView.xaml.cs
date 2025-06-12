@@ -299,13 +299,26 @@ namespace HangedMan_Client.Views
 
         private void CheckMatchStatus()
         {
-            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
-            if (matchStatus == 2)
+            try
             {
-                string message = Properties.Resources.ChallengerLeaveMatchMessage;
-                ShowMessage(message, 2);
-                NavigationService.Navigate(new LobbyView());
+                int matchStatus = gameServices.GetMatchStatus(match.MatchID);
+                if (matchStatus == 2)
+                {
+                    string message = Properties.Resources.ChallengerLeaveMatchMessage;
+                    ShowMessage(message, 2);
+                    NavigationService.Navigate(new LobbyView());
+                    dispatcherTimer.Stop();
+                }
+
+            }
+            catch(Exception)
+            {
                 dispatcherTimer.Stop();
+
+                ShowMessage(Properties.Resources.GenericErrorMessage, 3);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.GoToLoginView();
             }
         }
 
