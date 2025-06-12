@@ -18,7 +18,6 @@ namespace HangedMan_Client.Views
     */
     public partial class LobbyView : Page
     {
-        private readonly MainWindow mainWindow;
         private int matchLanguage;
         private DispatcherTimer dispatcherTimer;
         List<Match> matchesAvaliables;
@@ -27,7 +26,7 @@ namespace HangedMan_Client.Views
         private readonly WordServicesClient wordServicesClient = new WordServicesClient();
         private readonly GameServicesClient gameServicesClient = new GameServicesClient();
 
-        public LobbyView(MainWindow window)
+        public LobbyView()
         {
             InitializeComponent();
             ShowInformationPlayer();
@@ -36,7 +35,6 @@ namespace HangedMan_Client.Views
             GetAvaliableMatches();
             cbxWord.IsEnabled = false;
             cbxCategory.IsEnabled = false;
-            this.mainWindow = window;
         }
 
         private void SetupTimer()
@@ -84,7 +82,8 @@ namespace HangedMan_Client.Views
 
                 ShowMessage(Properties.Resources.ErrorLoadingMatches, 3);
 
-                mainWindow.GoToLoginView();
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.frame.Navigate(new LobbyView());
             }
         }
 
