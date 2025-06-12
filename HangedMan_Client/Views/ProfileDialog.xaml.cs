@@ -35,7 +35,7 @@ namespace HangedMan_Client.Views
             if (result == true)
             {
                 var mainWindow = Application.Current.MainWindow as MainWindow;
-                mainWindow.goToLoginView();
+                mainWindow.GoToLoginView();
             }
 
         }

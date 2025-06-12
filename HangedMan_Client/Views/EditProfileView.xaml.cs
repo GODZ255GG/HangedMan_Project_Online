@@ -85,7 +85,7 @@ namespace HangedMan_Client.Views
             player.Email = txtEmail.Text.Trim();
             player.PhoneNumber = txtTelephone.Text.Trim();
             player.Password = txtPassword.Password.Trim();
-            player.BirthDate = dpBirthDate.SelectedDate.Value.ToString("yyyy-MM-dd");
+            player.BirthDate = dpBirthDate.SelectedDate.Value.ToString("dd/MM/yyyy");
 
             bool confirmation = await playerServices.UpdatePlayerProfileAsync(player);
             if (confirmation)
