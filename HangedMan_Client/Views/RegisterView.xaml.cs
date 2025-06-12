@@ -140,7 +140,7 @@ namespace HangedMan_Client.Views
             if (confirmation)
             {
                 ShowMessage(Properties.Resources.ConfirmationUserRegister, 1);
-                mainWindow.goToLoginView();
+                mainWindow.GoToLoginView();
             }
             else
             {
@@ -262,17 +262,17 @@ namespace HangedMan_Client.Views
 
         private void BtnChangeEnglish_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.changeLanguageRegister("en");
+            mainWindow.ChangeLanguageRegister("en");
         }
 
         private void BtnChangeSpanish_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.changeLanguageRegister("es");
+            mainWindow.ChangeLanguageRegister("es");
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.goToLoginView();
+            mainWindow.GoToLoginView();
         }
 
         private void ShowMessage(string message, int type)

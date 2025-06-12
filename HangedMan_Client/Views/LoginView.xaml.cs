@@ -23,17 +23,17 @@ namespace HangedMan_Client.Views
 
         private void BtnChangeEnglish_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.changeLanguageLogin("en");
+            mainWindow.ChangeLanguageLogin("en");
         }
 
         private void BtnChangeSpanish_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.changeLanguageLogin("es");
+            mainWindow.ChangeLanguageLogin("es");
         }
 
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.goToRegisterView();
+            mainWindow.GoToRegisterView();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)

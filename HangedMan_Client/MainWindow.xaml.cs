@@ -14,30 +14,30 @@ namespace HangedMan_Client
         public MainWindow()
         {
             InitializeComponent();
-            goToRegisterView();
+            GoToRegisterView();
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es");
         }
 
-        public void goToRegisterView()
+        public void GoToRegisterView()
         {
             this.frame.Navigate(new RegisterView(this));
         }
 
-        public void goToLoginView()
+        public void GoToLoginView()
         {
             this.frame.Navigate(new LoginView(this));
         }
 
-        public void changeLanguageRegister(string cultureCode)
+        public void ChangeLanguageRegister(string cultureCode)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cultureCode);
-            goToRegisterView();
+            GoToRegisterView();
         }
 
-        public void changeLanguageLogin(string cultureCode)
+        public void ChangeLanguageLogin(string cultureCode)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cultureCode);
-            goToLoginView();
+            GoToLoginView();
         }
     }
 }
